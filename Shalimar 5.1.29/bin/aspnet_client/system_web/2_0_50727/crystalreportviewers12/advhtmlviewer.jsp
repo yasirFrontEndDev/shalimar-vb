@@ -1,0 +1,108 @@
+<%--
+	    (c) Business Objects 2006. All rights reserved.
+--%>
+
+<%@ page import="com.crystaldecisions.report.web.viewer.CrystalReportInteractiveViewer" %>
+<%@ page import="com.crystaldecisions.sdk.occa.report.lib.ReportSDKExceptionBase" %> 
+              
+<%@ include file="viewrpt_utils.jsp" %>
+
+<%!
+
+void setAdvancedViewerOptions(CrystalReportInteractiveViewer viewer, HttpServletRequest request)
+{
+	viewer.setHasBooleanSearchButton(true);
+	viewer.setEnableBooleanSearch(true);
+	viewer.setShowAdvSearchFieldsTab(true);
+	viewer.setShowAdvSearchConditionsTab(true);
+	viewer.setHasHelpButton(true);
+	
+	String sParam_Zoom = request.getParameter("sZoom");
+	if( sParam_Zoom != null )
+	{
+		viewer.setZoomFactor(Integer.valueOf(sParam_Zoom).intValue());
+	}
+}
+
+boolean viewReport(HttpServletRequest request, 
+				HttpServletResponse response,
+				ServletContext application,
+				JspWriter out,
+				IReportSource rptSrc,
+				String rptId,
+				boolean checkReportPart) throws Exception
+{
+	boolean bIsReportPart = isReportPart(request);
+	try {		
+		CrystalReportInteractiveViewer viewer = new CrystalReportInteractiveViewer();	
+		viewer.setProductLocale(rptSrc.getProductLocale());
+		viewer.setReportSource(rptSrc);
+		String queryStr = request.getQueryString();	
+	 		
+		viewer.setURI(ADVHTMLVIEWER + "?" + queryStr);
+	     
+		initializeViewer(viewer, request, response, rptId);
+		setViewerOptions(viewer, request);
+		setAdvancedViewerOptions(viewer, request);		
+		if (checkReportPart)
+			checkReportPart(viewer, request, rptSrc);
+		drillDownGroup(viewer, request);
+	
+		JspWriter jspWriter;
+		if (ViewerOptions.isUsejspwriter() )
+		    jspWriter = out;
+		else
+		    jspWriter = null;
+		viewer.processHttpRequest(request, response, application, jspWriter);
+		viewer = null;
+	}
+	catch(ReportSDKExceptionBase e)
+	{
+		response.reset();
+		if (bIsReportPart)
+			return false;
+		else
+			throw new Exception (e.toString());
+	}
+	catch(Exception e)
+	{
+		response.reset();		
+		if (bIsReportPart)
+			return false;
+		else
+			throw (e);
+	}
+
+	return true;
+}
+%>
+ 
+<%
+	SetPageExpiry(response);
+	jspInit();		
+		
+	try
+	{
+		String rptId = getReportId(request);
+		IReportSource rptSrc = getReportSource(request, rptId);
+		if (rptSrc == null)
+		{  
+			String queryStr = request.getQueryString();
+			response.sendRedirect("../viewrpt.cwr?" + queryStr + "&init=advhtml");		
+		} else {
+		
+			boolean succeeded = viewReport(request, response, application, out, rptSrc, rptId, true);
+			if (!succeeded )
+			{
+				alertMessage (out, response, "Report part navigation failed! Default to the first page of the report.");
+				viewReport(request, response, application, out, rptSrc, rptId, false);
+			}
+		}
+	} 
+	catch(Exception e)
+	{
+		WriteErrorCommit (response, session, e.getMessage());
+	}
+	 
+	jspDestroy();
+%>

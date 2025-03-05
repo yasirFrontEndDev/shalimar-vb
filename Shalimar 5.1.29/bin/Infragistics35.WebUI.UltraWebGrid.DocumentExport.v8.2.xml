@@ -1,0 +1,2224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics35.WebUI.UltraWebGrid.DocumentExport.v8.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.EmbedFonts">
+            <summary>
+            Determines how the fonts used by the elements created by the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter"/>
+            will be embedded in the document. This is used by the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontsEmbedded"/> property. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.UltraWebGrid.DocumentExport.EmbedFonts.All">
+            <summary>
+            Embed all fonts, even fonts that aren't loaded from the see cref="ExportResources.FontDirectory"/&gt;.  This will increase the size of the document that is generated.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.UltraWebGrid.DocumentExport.EmbedFonts.ResourceFontsOnly">
+            <summary>
+            Will embed fonts that are loaded from the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectory"/> but won't embed any other fonts that are used. Any other fonts must be present on the end user's machine to be displayed.  This is the default option.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.UltraWebGrid.DocumentExport.EmbedFonts.None">
+            <summary>
+            Won't embed any fonts in the documents. All fonts will be loaded from the end user's system.  Not recommended if fonts are being loaded from the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectory"/>.
+            </summary>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DataExportMode">
+            <summary>
+            Determines how the export will handle grids with paging and load on demand enabled. 
+            Used by the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DataExportMode"/> property.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.UltraWebGrid.DocumentExport.DataExportMode.DataInGridOnly">
+            <summary>
+            Only export the rows that are currently visible in the grid.  Don't make any attempt to rebind to the data. Useful for when custom logic is needed to decide which rows should be exported.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.UltraWebGrid.DocumentExport.DataExportMode.AllDataInDataSource">
+            <summary>
+            Bind the grid to the entire data source before exporting and create a document that contains all of the rows that would be displayed if paging or LoadOnDemand were not enabled. This is the default option.
+            </summary>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs">
+            <summary>
+            Event arguments that are passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.BeginExport"/> event. 
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridLayout,Infragistics.Documents.Report.Section.ISection)">
+            <summary>
+            Creates a new DocumentExportEventArgs object. 
+            </summary>
+            <param name="layout">The DisplayLayout property of grid that is being exported.</param>
+            <param name="section">The section of the report that the grid is being exported to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.Section">
+            <summary>
+            The report section that the grid is being exported to. This is the section that was provided to the Export() method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.Report">
+            <summary>
+            The report that the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.Section"/> belongs to. Using this parameter is the same as using the Parent property of the Section object.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.Layout">
+            <summary>
+            The DisplayLayout property of the grid that's being exported. 
+            </summary>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs">
+            <summary>
+            Event arguments that are passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridLayout,Infragistics.Documents.Report.Section.ISection,System.IO.Stream)">
+            <summary>
+            Creates a new DocumentExportEventArgs object. 
+            </summary>
+            <param name="layout">The DisplayLayout property of grid that is being exported.</param>
+            <param name="section">The section of the report that the grid is being exported to.</param>
+            <param name="outputStream">The stream the report was saved to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs.OutputStream">
+            <summary>
+            A reference to the stream that the report has been saved to during a <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode">custom export</see>.
+            </summary>
+            <remarks><p class="body">Use this to manipulate or close the stream after the report has been exported.</p></remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs">
+            <summary>
+            Event arguments that are passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExported"/> event. 
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridCell,Infragistics.Documents.Report.Table.ITableCell)">
+            <summary>
+            Creates a new CellExportedEventArgs object.
+            </summary>
+            <param name="gridCell">The cell from the grid that is being exported.</param>
+            <param name="reportCell">The cell in the report table that the grid cell is being exported to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.GridCell">
+            <summary>
+            The UltraWebGrid cell object that is currently being exported. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Changes to the GridCell won't be reflected in the exported document. To change the style
+            or contents of the cell in the report use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.ReportCell"/> property.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.ReportCell">
+            <summary>
+            The cell object in the report created to display the grid cell object. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this property if you want to alter the cell in the report while the grid cell is 
+            being exported. Styling can be changed and extra elements can be added. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridCell,Infragistics.Documents.Report.Table.ITableCell,System.Object)">
+            <summary>
+            Create a new CellExportingEventArgs object.
+            </summary>
+            <param name="gridCell">The cell from the grid that is being exported.</param>
+            <param name="reportCell">The cell in the report table that the grid cell is being exported to.</param>
+            <param name="exportValue">The value of the cell that's going to be exported.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.Cancel">
+            <summary>
+            Use to cancel the export of the cell.
+            </summary>
+            <remarks>
+            <p class="body">
+            If the cell export is cancelled, the text value of the cell will not be added to the grid but the
+            table cell will still be added. This is necessary to make the columns line up.
+            </p>
+            <p class="body">
+            Use this to override the default export with custom logic by manipulating the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportCell"/>
+            object yourself. Extra elements like images or extra text can be added to the export or the report
+            cell itself can be manipulated. 
+            </p>
+            <p class="body">
+            This is only necessary when the structure of the cell needs to be changed. To just change the text 
+            that's being exported, use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.ExportValue"/> property. To change the style of the cell
+            set the style properties of the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportCell"/>.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.ExportValue">
+            <summary>
+            The value that will be exported to the cell in the report. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Set this to a new value if you want to change the text that will be displayed in the report.
+            Use it to change the value that is exported without changing the value of the 
+            <see cref="T:Infragistics.WebUI.UltraWebGrid.UltraGridCell"/> object that's being exported.
+            </p>
+            <p class="body">
+            The value of the property may be set to any type of object. If this is set to an object that 
+            isn't a string, the result of the object's ToString() method will be displayed in the report
+            cell.
+            </p>
+            <p class="body">
+            If the ExportValue is changed, none of the formatting set on the column or on the editor
+            will be reapplied before it is exported. The value will be exported exactly as it is. 
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.HasExportValueChanged">
+            <summary>
+            Tracks whether the ExportValue property has been changed during the event. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Returns true if the ExportValue property was changed and false if it's still the same as 
+            the value of the cell.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs">
+            <summary>
+            Base class for event arguments for row exporting events.
+            </summary>
+            <remarks>
+            <p class="body">
+            Used by the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs"/> and <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs"/> event
+            argument classes.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridRow,Infragistics.Documents.Report.Table.ITable)">
+            <summary>
+            Creates a new DocumentRowEventArgs object.
+            </summary>
+            <param name="gridRow">The row in the grid that is currently being exported.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs.GridRow">
+            <summary>
+            The row from the grid that is being exported.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to access properties of the row that is currently being exported and to find the row's
+            position in the grid. It is most commonly used to modify the style of the row as the row is being 
+            exported.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs.ContainingTable">
+            <summary>
+            The table in the report that the exported row will belong to. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this property to customize the export as the rows are being exported. It can be used to add
+            extra elements to the exported document or to change the styling of the table element in the 
+            report. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridRow,Infragistics.Documents.Report.Table.ITable)">
+            <summary>
+            Creates a new RowExportingEventArgs object.
+            </summary>
+            <param name="gridRow">The row in the grid that is currently being exported.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs.Cancel">
+            <summary>
+            Use to cancel the export of the row.
+            </summary>
+            <remarks>
+            <p class="body">
+            If the row export is cancelled, the row's report element will not be added to the document. 
+            The row's cells will also not be exported and no cell exporting events will be fired.
+            </p>
+            <p class="body">
+            Use this to override the default export with custom logic. Use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs.ContainingTable"/>
+            property to add different elements to the report instead. 
+            </p>
+            <p class="body">
+            Setting this property has the same effect as setting the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipRow"/> property to true in the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow"/> event. Rendering can be cancelled in 
+            either event but the other event fires first so cancelling the render there will save a little 
+            bit of processing.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExported"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridRow,Infragistics.Documents.Report.Table.ITableRow,Infragistics.Documents.Report.Table.ITable)">
+            <summary>
+            Creates a new RowExportedEventArgs object.
+            </summary>
+            <param name="gridRow">The row in the grid that has just been exported.</param>
+            <param name="reportRow">The row object in the report created to display the grid's row object.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs.ReportRow">
+            <summary>
+            The row object in the report created to display the grid's row object. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this property to alter the row in the report after the grid row has been exported. 
+            Useful for setting style properties on the row. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridRow)">
+            <summary>
+            Creates a new DocumentExportInitializeRowEventArgs object.
+            </summary>
+            <param name="row">The row in the grid that is about to be exported.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.Row">
+            <summary>
+            The row from the grid that is about to be exported.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to modify properties of the row that is about to be exported and to find the row's
+            position in the grid. 
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipDescendants">
+            <summary>
+            Skip the rendering of any child rows of the current row.
+            </summary>
+            <remarks>
+            <p class="body">
+            If this is set to true, no elements will be created in the document for child rows of
+            the current row. To skip rendering only for a specific child row, set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipRow"/>
+            property of the event argument to true when the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow"/> event is fired for that row.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipRow">
+            <summary>
+            Set to true to skip the rendering of this row.
+            </summary>
+            <remarks>
+            <p class="body">
+            Has the same effect as setting the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs.Cancel"/> property to 
+            true in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting"/> event. Rendering can be 
+            cancelled in either event but this event fires first so cancelling the render here will save 
+            a little bit of processing.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipSiblings">
+            <summary>
+            Set to true to skip the rendering of the rest of the rows in the rows collection.
+            </summary>
+            <remarks>
+            <p class="body">
+            If this is set to true, the current row will be exported but none of the rest of the rows
+            in the rows collection that haven't yet been exported will be exported. The rest of the rows
+            in the rows collection will not be processed at all so none of the export events will be fired
+            for them. 
+            </p>
+            <p class="body">
+            Footer rows are not affected. Footer rows will still be exported after the SkipSiblings property
+            has been set to true. The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting"/> event 
+            will also need to be cancelled to prevent the footers exporting. 
+            </p>
+            <p class="body">
+            Rows belonging to different rows collections in the same band will not be affected. 
+            </p>
+            
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.TerminateExport">
+            <summary>
+            Skips the rest of the elements in the grid. 
+            </summary>
+            <remarks>
+            <p class="body">
+            A report will be created containing all of the elements that have already been exported from
+            the grid but no new elements will added to the export. 
+            </p>
+            <p class="body">
+            This will stop the UltraWebGridDocumentExporter from processing the rest of the elements in 
+            the document. All elements that haven't been exported including header rows, footer rows, 
+            new rows collections and group by rows will be affected. No more document exporting events except
+            for <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> will be fired. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExporting"/> and 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExporting"/> events.
+            </summary>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExported"/> and 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExported"/> events.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridColumn,Infragistics.Documents.Report.Table.ITableCell)">
+            <summary>
+            Creates a new MarginRowEventArgs object.
+            </summary>
+            <param name="column">The UltraGridColumn in the grid that the header or footer cell belongs to.</param>
+            <param name="reportCell">The cell in the report table that the grid cell is being exported to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.Column">
+            <summary>
+            The UltraGridColumn in the grid that the header or footer cell belongs to.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to find the header or footer's position in the grid.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.ReportCell">
+            <summary>
+            The cell object in the report created to display the header or footer cell object. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this property if you want to alter the cell in the report while the grid cell is 
+            being exported. Styling can be changed and extra elements can be added. 
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.UltraGridColumn,Infragistics.Documents.Report.Table.ITableCell,System.Object)">
+            <summary>
+            Creates a new MarginRowEventArgs object.
+            </summary>
+            <param name="column">The UltraGridColumn in the grid that the header or footer cell belongs to.</param>
+            <param name="reportCell">The cell in the report table that the grid cell is being exported to.</param>
+            <param name="exportValue">The value of the margin cell in the generated document.</param> 
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.ExportValue">
+            <summary>
+            The value that will be exported to the header or footer in the report. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Set this to a new value if to change the text that will be displayed in the report.
+            Use it to change the value that is exported without changing the value of the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.UltraGridColumn.Header"/> or <see cref="P:Infragistics.WebUI.UltraWebGrid.UltraGridColumn.Footer"/> that's being 
+            exported.
+            </p>
+            <p class="body">
+            The value of the property may be set to any type of object. If this is set to an object that 
+            isn't a string, the result of the object's ToString() method will be displayed in the report
+            cell.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.Cancel">
+            <summary>
+            Use to cancel the export of the header or footer.
+            </summary>
+            <remarks>
+            <p class="body">
+            If the margin cell export is cancelled, the text value of the cell will not be added to the grid
+            but the table cell will still be added. This is necessary to make the columns line up.
+            </p>
+            <p class="body">
+            Use this to override the default export with custom logic by manipulating the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportCell"/>
+            object yourself. Extra elements like images or extra text can be added to the export or the report
+            cell itself can be manipulated. 
+            </p>
+            <p class="body">
+            This is only necessary when the structure of the cell needs to be changed. To just change the text 
+            that's being exported, use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.ExportValue"/> property. To change the style of the cell
+            set the style properties of the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportCell"/>.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.HasExportValueChanged">
+            <summary>
+            Tracks whether the ExportValue property has been changed during the event. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Returns true if the ExportValue property was changed and false if it's still the same as 
+            the value of the margin grid element.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs">
+            <summary>
+            Base class for event arguments for margin row exporting events.
+            </summary>
+            <p class="body">
+            Used by the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs"/> and <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs"/> 
+            event argument classes.
+            </p>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.Documents.Report.Table.ITable)">
+            <summary>
+            Creates a new MarginRowEventArgs object.
+            </summary>
+            <param name="rows">The rows collection in the grid that the header or footer belongs to.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.Rows">
+            <summary>
+            The rows collection in the grid that the header or footer belongs to.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to find the header or footer's position in the grid.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable">
+            <summary>
+            The table in the report that the exported row will belong to. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this property to customize the export as the header or footer is being exported. 
+            It can be used to add extra elements to the exported document or to change the styling of the 
+            table element in the report. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExporting"/> and 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting"/> events.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.Documents.Report.Table.ITable)">
+            <summary>
+            Creates a new MarginRowExportingEventArgs object.
+            </summary>
+            <param name="rows">The rows collection in the grid that the header or footer belongs to.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs.Cancel">
+            <summary>
+            Use to cancel the export of the row.
+            </summary>
+            <remarks>
+            <p class="body">
+            If the event is cancelled, the header or footer row's report element will not be added to the 
+            document. The row's cells will also not be exported and no margin cell exporting events will be fired.
+            </p>
+            <p class="body">
+            Use this to override the default export with custom logic. Use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable"/>
+            property to add different elements to the report instead. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs">
+            <summary>
+            Event argument that is passed to event handlers for the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExported"/> and 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExported"/> events.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs.#ctor(Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.Documents.Report.Table.ITable,Infragistics.Documents.Report.Table.ITableRow)">
+            <summary>
+            Creates a new MarginRowExportedEventArgs object.
+            </summary>
+            <param name="rows">The rows collection in the grid that the header or footer belongs to.</param>
+            <param name="containingTable">The table in the report that the exported row will belong to.</param>
+            <param name="reportRow">The row object in the report created to display the header or footer row.</param>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs.ReportRow">
+            <summary>
+            The row object in the report created to display the header or footer row in the generated document.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this property if you want to alter the header or footer row elemenet in the report after 
+            the row has been exported. Useful for setting style properties on the row. 
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache">
+            <summary>
+            Use the graphics cache to get Infragistics.Documents graphics objects
+            like Backgrounds, Borders and Fonts.
+            </summary>
+            <remarks>
+            <p class="body">
+            The graphics class will translate from native .NET objects like System.Drawing.Color,
+            font names and line widths to objects that can be used with the Document generating framework.
+            </p>
+            <p class="body">
+            It will also cache the objects that it creates to improve the performance of the framwork's
+            drawing. When an object is requested for the first time it's created and any requests after 
+            that for a drawing object with the same properties will return the existing objects. 
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetFont(Infragistics.WebUI.UltraWebGrid.DocumentExport.CssFont,Infragistics.WebUI.UltraWebGrid.DocumentExport.TextDecoration)">
+            <summary>
+            Returns an Infragistics.Documents Font graphic object from a font family name and a font size.
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the font already exists and returns the existing font rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="cssFont">A space seperated list of font names that are installed on the system. For example "Arial Verdana"</param>
+            <param name="textDecoration">Font size in points</param>
+            <returns>A Font object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetFontFilename(System.String)">
+            <summary>
+            Searches the font resource directory for a possible font file match. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Pass the name of the font and it will return the name of the file that contains
+            the font. Will return null if the font's file isn't in the FontDirectory.
+            </p>
+            <p class="body">
+            Only loads the fonts from the directory the first time the method is called so
+            any changes that are made to the directory won't be automatically picked up.
+            </p>
+            </remarks>
+            <param name="fontName">The name of the font you are searching for ("Comic Sans MS")</param>
+            <returns>The full filepath of the font file if the file is found or null if no matching file is found.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetSolidBorder(System.Drawing.Color,System.Single,Infragistics.WebUI.UltraWebGrid.DocumentExport.BorderStyle)">
+            <summary>
+            Returns a Border object that can be used in the Document generator that's the specified color and width. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="color">A color object that is the color you want the border to be.</param>
+            <param name="width">The width in pixels you want the line to be.</param>
+            <param name="borderStyle">A CSS border style.</param>
+            <returns>A Border object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetSolidPen(System.Drawing.Color,System.Single,Infragistics.WebUI.UltraWebGrid.DocumentExport.BorderStyle)">
+            <summary>
+            Returns a Pen object that can be used in the Document generator that's the specified color and width. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="color">The System.Drawing.Color object containing the color of the pen.</param>
+            <param name="width">The width of the line the pen will draw.</param>
+            <param name="borderStyle">A CSS border style.</param>
+            <returns>A Pen object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetImageBackground(System.String,Infragistics.WebUI.UltraWebGrid.DocumentExport.BackgroundRepeat)">
+            <summary>
+            Returns a Background object that can be used in the Document generator that's uses an image at a particular path.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="imagePath">The complete path to the image on the file system</param>
+            <param name="repeat">The css background repeat setting</param>
+            <returns>A Background object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetTextureBrush(System.String)">
+            <summary>
+            Returns a Background object that can be used in the Document generator that's uses an image at a particular path.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="imagePath">The complete path to the image on the file system</param>
+            <returns>A Background object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetImage(System.String)">
+            <summary>
+            Returns an image object of an image that's at a particular path.
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="imagePath">The complete filesystem path to the image.</param>
+            <returns>An image object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetSolidBackground(System.Drawing.Color)">
+            <summary>
+            Returns a Background object that can be used in the Document generator that's the specified color. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="color">A solid color to use as the background</param>
+            <returns>A Background object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetSolidBrush(System.Drawing.Color)">
+            <summary>
+            Returns a SolidColorBrush object that can be used in the Document generator that's the specified color. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="color">The solid color that the brush should be.</param>
+            <returns>A SolidColorBrush object that can be used with the Document generator.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.GraphicsCache.GetColor(System.Drawing.Color)">
+            <summary>
+            Returns a Color object that can be used in the Document generator that's the specified color. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Checks whether the object already exists and returns the existing object rather than creating 
+            a new one where possible.
+            </p>
+            </remarks>
+            <param name="color">A System.Drawing.Color object that you want translated to a Infragistics.Documents.Graphics.Color</param>
+            <returns>A Color object that can be used with the Document generator.</returns>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportElement">
+            <summary>
+            Base class for ReportElement objects that are used to apply styling to the
+            Table, Row, Cell and Text objects that make up the grid.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportElement.ApplyStyle(Infragistics.WebUI.UltraWebGrid.DocumentExport.CssStyle)">
+            <summary>
+            Walks through the MasterClass and applies all possible styles to the PDFElement.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportElement.Parent">
+            <summary>
+            The parent of the current PDFElement. Returns null if there is no parent. 
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportCell.AddTable(System.String,System.String)">
+            <summary>
+            Creates and returns a new PDFTable.
+            </summary>
+            <param name="classes">The CssClasses that should be applied to the Table</param>
+            <param name="styles">The CssStyles that should be applied to the Table</param>
+            <returns></returns>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer">
+            <summary>
+            The ReportRenderer class traverses the grid and exports all of the required grid elements
+            to the document section that is provided to the constructor. 
+            </summary>
+            <remarks>
+            <p class="body">
+            The ReportRenderer uses the grid's internal ability to be traversed as an Xml document
+            to export the grid to a document provided by the UltraWebGridDocumentExporter object that
+            is using it. 
+            </p>
+            <p class="body">
+            It uses the Xml representation of the grid so that grid features like column moving, filtering,
+            data editors and sorting will automatically be applied. The elements of the grid automatically
+            take most of the important grid settings into account when creating the XML document. 
+            </p>
+            <p class="body">
+            The ReportRendered exports the grid as closely to the way it appears in the browser as possible.
+            It exports grid features like hierarchy, grouping, filtering, column moving and sorting. Styles
+            that are set directly on the grid or through application styling will also be applied. 
+            </p>
+            <p class="body">
+            The way it works internally is very simple. It has Walk methods for traversing the Xml
+            document and Export methods for creating elements in the document that is being generated.
+            Each different element in the grid is created using an Export method and collections of
+            objects like Rows, Cells and Footers are traversed using the Walk methods. Elements in 
+            the document are created using a ReportWrapper object that knows how to create report elements.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.#ctor(Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter,Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection,Infragistics.WebUI.UltraWebGrid.DocumentExport.StyleSheet)">
+            <summary>
+            Creates a ReportRenderer object that can export the specified UltraWebGrid object to the ISection report section that has been provided.
+            </summary>
+            <param name="exporter">A reference to the UltraWebGridDocumentExporter object
+            that has has triggered the export. This is necessary so the events can be fired
+            as the grid elements are exported.</param>
+            <param name="grid">The UltraWebGrid object that is to be exported. This will be
+            exported as it is configured when the <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.Render"/> method is called.</param>
+            <param name="section">The section of the report that the grid should be exported to.</param>
+            <param name="stylesheet">The object containing all the stylesheet information.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.Render">
+            <summary>
+            Triggers the export of the grid to the section that was provided to the constructor. 
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkRows(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Iterates through the rows in a rows collection XML tag ("Rs") and exports each row to the document that's being generated.
+            </summary>
+            <remarks>
+            	<p class="body">
+            This overload is used for rows collection where styling isn't applied. It's used for
+            rows collections of rows with children and the rows collections of GroupByRows. 
+            Use the overload with the style parameters to export the rows collection for the first
+            band with a styled border.
+            </p>
+            </remarks>
+            <param name="navigator">The XPathNavigator element that represents the UltraGridRow
+            that the cells belong to. The tag's name should be "Rs".</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkRows(System.Xml.XPath.XPathNavigator,System.String,System.String)">
+            <summary>
+            Iterates through the rows in a rows collection XML tag ("Rs") and exports each row to the document that's being generated.
+            </summary>
+            <param name="navigator">The XPathNavigator element that represents the UltraGridRow
+            that the cells belong to. The tag's name should be "Rs".</param>
+            <param name="classes">Any css classes to be applied to the rows area. Used to give
+            the outer table a background color and border.</param>
+            <param name="styles">Any inline styles to be applied to the rows area.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkCells(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Processes an UltraGridCell's XML element and exports the cell to the document that's being generated.
+            </summary>
+            <param name="navigator">The XPathNavigator element that represents the UltraGridRow
+            that the cells belong to. The tag's name should be "R".</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkRow(System.Xml.XPath.XPathNavigator,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable,System.Boolean)">
+            <summary>
+            Processes an UltraGridRow's XML element and exports the row to the document that is being generated.
+            </summary>
+            <remarks>
+            	<p class="body">
+            The method will only export the row if cell elements are found. It will also export any 
+            child rows that are found.
+            </p>
+            </remarks>
+            <param name="navigator">The XPathNavigator element that represents the UltraGridRow. 
+            The tag's name should be "R".</param>
+            <param name="table">The rows collection the footer belongs to</param>
+            <param name="skipDescendants">Whether the row's child rows should be exported.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkFooters(System.Xml.XPath.XPathNavigator,Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable)">
+            <summary>
+            Iterates through the Footer elements of a rows collection to export footer elements to the document that is being generated.
+            </summary>
+            <param name="navigator">The XPathNavigator element that represents the FooterCollection.
+            The tag's name should be "Footers".</param>
+            <param name="rows">The rows collection the footer belongs to</param>
+            <param name="table">The table element in the report where the row will be added.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.WalkGroup(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Walks through the child elements of the GroupByRow's xml element to create child rows.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Only child elements with name set to "Rs" will be processed. Any other elements will be
+            ignored. There should only be one Rs tag per GroupByRow. 
+            </p>
+            </remarks>
+            <param name="navigator">The XPathNavigator element that represents the GroupByRow.
+            The tag's name should be "Group".</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportRow(Infragistics.WebUI.UltraWebGrid.UltraGridRow,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Exports an UltraGridRow to the document that's being generated.
+            </summary>
+            <remarks>
+            <p class="body">
+            Creates the elements in the document necessary to create the row and then walks the cells
+            in the row.
+            </p>
+            <p class="body">
+            Fires the RowExporting event before the row is exported. Fires the RowExported event 
+            when the row has finished exporting. 
+            </p>
+            </remarks>
+            <param name="gridRow">The row from the grid that is to be exported.</param>
+            <param name="table">The table element in the report where the row will be added.</param>
+            <param name="navigator">A reference to the row's navigator element.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportCell(Infragistics.WebUI.UltraWebGrid.UltraGridCell,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Exports an UltraGridColumn to the document that's being generated.
+            </summary>
+            <param name="gridCell">The UltraGridCell object that's being exported</param>
+            <param name="navigator">A reference to the cell's navigator element</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportHeaderRow(Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable)">
+            <summary>
+            Exports a header row to the document that's being generated.
+            </summary>
+            <remarks>
+            <p class="body">
+            Creates all the elements necessary to export the header row and then iterates through the
+            columns to export the header cells.
+            </p>
+            </remarks>
+            <param name="rows">The rows collection that the header belongs to.</param>
+            <param name="tableElement">The table element in the report where the row will be added.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportHeaderCell(Infragistics.WebUI.UltraWebGrid.UltraGridColumn)">
+            <summary>
+            Exports a header cell to the document that's being generated.
+            </summary>
+            <param name="column">The column that the header belongs to.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportFooterRow(Infragistics.WebUI.UltraWebGrid.RowsCollection,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Exports a header row to the document that's being generated.
+            </summary>
+            <remarks>
+            <p class="body">
+            Creates all the elements necessary to export the header row and then iterates through the
+            columns to export the header cells.
+            </p>
+            </remarks>
+            <param name="rows">The rows collection that the header belongs to.</param>
+            <param name="table">The table element in the report where the row will be added.</param>
+            <param name="navigator">A reference to the footer row's navigator element</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportFooterCell(Infragistics.WebUI.UltraWebGrid.UltraGridColumn,Infragistics.WebUI.UltraWebGrid.RowsCollection)">
+            <summary>
+            Exports a footer row to the document that's being generated.
+            </summary>
+            <param name="column">The UltraGridColumn object that the footer belongs to</param>
+            <param name="rows">The rows collection the footer belongs to.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportRowSelector(Infragistics.WebUI.UltraWebGrid.UltraGridBand,System.Boolean,Infragistics.WebUI.UltraWebGrid.UltraGridRow)">
+            <summary>
+            Exports a row selector to the document. Will also export expansion area if hierarchy is enabled. 
+            </summary>
+            <param name="band">The band that the row that is exported belongs to.</param>
+            <param name="headerRow">Pass true if the row that the selector is for is a header row to get the header row selector style.</param>
+            <param name="row">The row that the row selector belongs to. This is optional.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportGroup(Infragistics.WebUI.UltraWebGrid.GroupByRow,Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportTable,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Exports a GroupByRow to the document that's being generated.
+            </summary>
+            <remarks>
+            <p class="body">
+            The method will create the elements necessary to display the group by row and child rows
+            and then will walk all of the rows inside the group.
+            </p>
+            </remarks>
+            <param name="row">The GroupByRow to be exported.</param>
+            <param name="table">The table element in the report where the row will be added.</param>
+            <param name="navigator">The navigator object containing the current element in the hierarchy.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.ExportRowsCollection(Infragistics.WebUI.UltraWebGrid.RowsCollection,System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Exports a RowsCollection to the document that's being generated.
+            </summary>
+            <remarks>
+            <p class="body">
+            The method will create the elements necessary to display hierarchy and then will walk all of 
+            the rows inside the collection.
+            </p>
+            </remarks>
+            <param name="rows">The rows collection to be exported.</param>
+            <param name="navigator">The navigator object containing the current element in the hierarchy.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.GetIndentation(Infragistics.WebUI.UltraWebGrid.UltraGridBand)">
+            <summary>
+            Returns the number of pixels of indentation the band should show.
+            </summary>
+            <remarks>
+            <p class="body">
+            Indentation will always be in pixels. It will never be set in percentages
+            or any other unit. If IndentationType is set to flat, the method will return zero.
+            </p>
+            <p class="body">
+            If indentation hasn't been set on the band, it will get the indentation setting
+            from the DisplayLayout property of the grid. 
+            </p>
+            </remarks>
+            <param name="band">The band whose indentation you are interested in.</param>
+            <returns>The number of pixels of indentation that should be displayed or zero if IndentationType is set to flat.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.GetRowHeight(Infragistics.WebUI.UltraWebGrid.UltraGridBand)">
+            <summary>
+            Returns the default height of the rows in a band as a Unit.
+            </summary>
+            <remarks>
+            <p class="body">
+            If the default row height hasn't been set on the band, the height will be taken
+            from the grid's DisplayLayout.RowHeightDefault instead. If no default height has been 
+            set. Unit.Empty will be returned. 
+            </p>
+            </remarks>
+            <param name="band">The band whose row height you are interested in.</param>
+            <returns>The default height in units.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ReportRenderer.GetAttribute(Infragistics.WebUI.UltraWebGrid.IXPathDataNavigable,System.String)">
+            <summary>
+            Reads an attribute from an IXPathDataNavigable element.
+            </summary>
+            <remarks>
+            <p class="body">
+            Will only return attributes set directly on the element. If the attribute isn't set, 
+            it will return null.
+            </p>
+            </remarks>
+            <param name="element">An IXPathDataNavigable element of the grid like an UltraGridBand or UltraGridRow object.</param>
+            <param name="attribute">The name of an attribute set on the element.</param>
+            <returns>The value of the attribute as a string or null if the attribute hasn't been set.</returns>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources">
+            <summary>
+            Contains information about external resources like fonts that are needed for the export.
+            </summary>
+            <remarks>
+            <p class="body">
+            This class is used as a property of the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter"/> control
+            that will be automatically created by the control. You should never need to instantiate a 
+            copy of this class yourself. 
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.#ctor">
+            <summary>
+            Creates a new ExportResources object.
+            </summary>
+            <remarks>
+            <p class="body">
+            This class is used as a property of the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter"/> control
+            that will be automatically created by the control. You should never need to instantiate a 
+            copy of this class yourself. 
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectory">
+            <summary>
+            Provides the path to a directory containing the files for fonts that should be included in the document but aren't installed on the server.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use the FontDirectory to provide the report generator with fonts that aren't installed on the 
+            server. 
+            </p>
+            	<p class="body">
+            The FontDirectory property should give the location of a directory in the local 
+            file system from where extra font files that should be embedded into the document 
+            can be loaded. The FontDirectory can point to an absolute directory path (c:\settings\fonts) 
+            or a path relative to the current ASP.NET page (~/fonts/styles). 
+            </p>
+            	<p class="body">
+            Setting a font directory is optional. If the FontDirectory property is null, the report 
+            generator will not try to load extra font files from the file system. It is possible to 
+            use a combination of fonts from the FontDirectory and fonts from the operating system.  
+            You only need to add fonts to the FontDirectory that aren't installed in the operating 
+            system.
+            </p>
+            	<p class="body">
+            When setting a FontDirectory make sure that the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontsEmbedded"/> property is 
+            not set to None. Fonts that are not likely to be included in the end user's system must 
+            be embedded or they will be displayed as the default font for the PDF reader if they are 
+            not found on the user's system. 
+            </p>
+            	<p class="body">
+            The report generator only supports TrueType (.ttf) font files. Any other files in the 
+            FontDirectory will be ignored. The document export will only look for fonts in the 
+            directory that is provided. It will not do a recursive search. 
+            </p>
+            	<p class="body">
+            Embedding extra fonts requires the application to have Full Trust on the web server. 
+            An exception will be thrown if it is attempted by a web application running at Medium 
+            Trust or lower. If the web application is running in Medium Trust, fonts can't be embedded 
+            and the FontDirectory must be null.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectoryResolved">
+            <summary>
+            Returns the full file path of the FontDirectory. Resolves any relative paths.
+            </summary>
+            <remarks>
+            <p class="body">
+            For internal use only.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontsEmbedded">
+            <summary>
+            Determines whether or not font files should be embedded in the document.
+            </summary>
+            <remarks>
+            <p class="body">
+            When fonts are embedded, the font file information will be included in the report file 
+            so that the correct font will be displayed even on machines where it isn't installed.  When 
+            fonts are embedded into the document they will be sure to display correctly on all end user.  
+            If the fonts aren't embedded, fonts that can't be loaded will be displayed using the report 
+            reader's default font instead. 
+            </p>
+            <p class="body">
+            The disadvantage of embedding fonts is that it makes the document files considerably larger 
+            than they would be otherwise.  If you are using only standard operating system fonts that will 
+            be installed on most end users machines or if file size is a big consideration, it is worth 
+            setting the property to None. 
+            </p>
+            <p class="body">
+            The recommended setting for this property is <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.EmbedFonts">EmbedFonts.ResourceFontsOnly</see>
+            where fonts that are loaded from the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectory"/> will be embedded into the document 
+            but the other standard operating system fonts will be loaded from the end user's machine.  If 
+            you aren't using any fonts that are loaded from the FontDirectory, setting the property to 
+            ResourceFontsOnly will be the same as setting the property to None. 
+            </p>
+            <p class="body">
+            Embedding fonts requires full trust on the web server. An exception will be thrown if the web 
+            application is running in medium trust. If the web application is running in medium trust, the 
+            FontsEmbedded property must be set to None and font names will be added to the document but the 
+            fonts themselves need to be installed on the end users machine for the font to display. 
+            </p>
+            <p class="body">
+            It is not possible to set the FontsEmbedded property on a per-style basis. It can only be set 
+            for the entire <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter"/> control. 
+            </p>
+            <p class="body">
+            Font information will only be included if the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format"/> 
+            supports it. This means that font information will be included for PDF or XPS documents but not
+            for PlainText files. 
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.LocalizedCategoryAttribute.GetLocalizedString(System.String)">
+            <summary>
+            Returns the localized category name.
+            </summary>
+            <param name="value">Name of the category to retreive</param>
+            <returns>The localized string value</returns>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CssSelector.InheritedClassNames">
+            <summary>
+            The classes as they will be applied from left to right.  The first class will be applied first and the last class will be applied last.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CssSelector.ClassNames">
+            <summary>
+            The classes as they will be applied from left to right.  The first class will be applied first and the last class will be applied last.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CssStyle.GraphicsCache">
+            <summary>
+            Returns a reference to the object that creates graphics objects like colors, brushes and backgrounds. The cache object usually takes a drawing or style object like a color and returns Infragistis Document paint objects.
+            </summary>
+            <remarks>
+            	<p class="body">You need to assign a GraphicsCache object to the style before you try to call any of the
+            Apply methods (like ApplyBackground()).</p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter">
+            <summary>
+            The UltraWebGridDocumentExporter control provides PDF and XPS document exporting functionality to 
+            the <see cref="T:Infragistics.WebUI.UltraWebGrid.UltraWebGrid"/>.
+            </summary>
+            <remarks>
+            <p class="body">
+            You need to call the control's <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid)"/> method to trigger the export. This 
+            is usually done in response to an action like a button click. 
+            </p>
+            <p class="body">
+            The export can be customized by setting the properties of the document exporter control. Some 
+            of the most common properties to set are:
+            </p>
+            <list type="bullet">
+            <item><see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format">Format</see>  - whether to export as a PDF, XPS or text document.</item>
+            <item><see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadName">DownloadName</see> - the name of the file after it is downloaded</item>
+            <item><see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode">ExportMode</see> -how the report will be sent to the browser.</item>
+            <item><see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DataExportMode">DataExportMode</see> - how to export grids with paging or load on demand enabled.</item>
+            </list>
+            <p class="body">
+            You can also use the control's events to customize the export.
+            </p>
+            <list type="bullet">
+            <item>The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.BeginExport">BeginExport</see> and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport">EndExport</see>  events 
+            can be used to add extra information to the section that the grid is being exported to.</item>
+            <item>The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting">CellExporting</see>  and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting">RowExporting</see> 
+            events can be used to customize the rows that are exported. </item>
+            <item>The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow">InitializeRow</see> event can be used to cancel the export for 
+            particular rows or groups of rows.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.#ctor">
+            <summary>
+            UltraWebGridDocumentExporter object constructor.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to programmatically create an UltraWebGridDocumentExporter object at runtime. Make 
+            sure that you set the object's ID property and add it to the form's control collection.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Dispose">
+            <summary>
+            Performs final clean-up before the control is released from memory by the garbage collector.
+            </summary>
+            <remarks>
+            None.
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid)">
+            <summary>
+            Used to trigger the export of the grid. Usually is called in response to a user action like a button click.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this export method if you want the grid to be exported to a new report. The export method will 
+            automatically create a new report with one section. A reference to the section will be returned from 
+            the method. 
+            </p>
+            	<p class="body">
+            The exported document will be saved to the page's Response stream.  The report will be sent to the 
+            browser and the user will be prompted to either view it in the browser or download it depending on 
+            the control's <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> setting. 
+            </p>
+            	<p class="body">
+            The export will not happen at the time when the export method is called. For grids that are exported
+            to the response stream, the export will happen when the page's Render method is called. The control 
+            is designed like this to give the rest of the page life cycle a chance to run before the document is
+            exported to the response stream. This is necessary to support application styling. 
+            </p>
+            	<p class="body">
+            Because of the delayed way the export works, each document exporter control can only export one grid 
+            per postback. If you need to export multiple grids to the same document, you will need to use a 
+            separate UltraWebGridDocumentExporter control for each grid and pass a reference to the same Report 
+            each time you call the Export() method. Make sure you set the <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> property to 
+            Custom for all of the UltraWebGridDocumentExporter controls except for the first because only the 
+            first control will need to export the document to the page's Response stream. 
+            </p>
+            	<p class="body">
+            The UltraWebGridDocumentExporter has some limitations and does not export all grid features as they 
+            would appear in the browser.
+            </p>
+            	<list type="bullet">
+            		<item>Templated columns will not be exported.  It is not possible for the document exporter to know how to recreate the contents of a templated column in PDF so any templated columns will be excluded from the export.</item>
+            		<item>Any HTML formatting that is set as the value of a string cell will be exported as a literal string rather than being applied as formatting.</item>
+            		<item>Checkbox columns will display as a true/false value rather than as a checkbox</item>
+            		<item>StationaryMarginsOutlookGroupBy settings are currently ignored</item>
+            		<item>Header layouts are ignored. Grids with header layouts will be exported with one header per column</item>
+            		<item>Header images are ignored. Column headers will be exported as normal just without the image that was supplied.</item>
+            	</list>
+            	<p class="body">
+            You can also export the grid to an <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection)">existing section</see>,
+            an <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Report)">existing report</see> or to a 
+            <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,System.IO.Stream,System.Boolean)">custom stream</see>. 
+            </p>
+            </remarks>
+            <param name="grid">The UltraWebGrid control that is to be exported to the document.</param>
+            <returns>The section that the grid is being exported to.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection)">
+            <summary>
+            Exports the grid to an existing section of an existing report. Saves the report to the page's Response stream so it can be downloaded by the user's browser.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this export method is you want the grid to be exported to a particular section of an existing 
+            report. This can be useful if the grid isn't going to be in the first or last section of the report.
+            </p>
+            	<p class="body">
+            The exported document will be saved to the page's Response stream.  The report will be sent to the 
+            browser and the user will be prompted to either view it in the browser or download it depending on 
+            the control's <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> setting. 
+            </p>
+            	<p class="body">
+            The export will not happen at the time when the export method is called. For grids that are exported
+            to the response stream, the export will happen when the page's Render method is called. The control 
+            is designed like this to give the rest of the page life cycle a chance to run before the document is
+            exported to the response stream. This is necessary to support application styling. 
+            </p>
+            	<p class="body">
+            Because of the delayed way the export works, each document exporter control can only export one grid 
+            per postback. If you need to export multiple grids to the same document, you will need to use a 
+            separate UltraWebGridDocumentExporter control for each grid and pass a reference to the same Report 
+            each time you call the Export() method. Make sure you set the <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> property to 
+            Custom for all of the UltraWebGridDocumentExporter controls except for the first because only the 
+            first control will need to export the document to the page's Response stream. 
+            </p>
+            	<p class="body">
+            The UltraWebGridDocumentExporter has some limitations and does not export all grid features as they 
+            would appear in the browser.
+            </p>
+            	<list type="bullet">
+            		<item>Templated columns will not be exported.  It is not possible for the document exporter to know how to recreate the contents of a templated column in PDF so any templated columns will be excluded from the export.</item>
+            		<item>Any HTML formatting that is set as the value of a string cell will be exported as a literal string rather than being applied as formatting.</item>
+            		<item>Checkbox columns will display as a true/false value rather than as a checkbox</item>
+            		<item>StationaryMarginsOutlookGroupBy settings are currently ignored</item>
+            		<item>Header layouts are ignored. Grids with header layouts will be exported with one header per column</item>
+            		<item>Header images are ignored. Column headers will be exported as normal just without the image that was supplied.</item>
+            	</list>
+            	<p class="body">
+            You can also export the grid to an to a <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection,System.IO.Stream,System.Boolean)">custom stream</see>. 
+            </p>
+            </remarks>
+            <param name="grid">The UltraWebGrid control that is to be exported to the document.</param>
+            <param name="section">The section of the document that the grid will be exported to.</param>
+            <returns>The section that the grid is being exported to.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Report)">
+            <summary>
+            Exports the grid to a new section at the end of the provided report. Saves the report to the page's Response stream so it can be downloaded by the user's browser.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this export method if you want the grid to be exported to a new section at the end of an existing 
+            report. The section that is created is returned from the method.  The document exporter creates the 
+            new section as soon as the Export() method is called so you can add more sections to the document 
+            after exporting the grid. 
+            </p>
+            	<p class="body">
+            The exported document will be saved to the page's Response stream.  The report will be sent to the 
+            browser and the user will be prompted to either view it in the browser or download it depending on 
+            the control's <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> setting. 
+            </p>
+            	<p class="body">
+            The export will not happen at the time when the export method is called. For grids that are exported
+            to the response stream, the export will happen when the page's Render method is called. The control 
+            is designed like this to give the rest of the page life cycle a chance to run before the document is
+            exported to the response stream. This is necessary to support application styling. 
+            </p>
+            	<p class="body">
+            Because of the delayed way the export works, each document exporter control can only export one grid 
+            per postback. If you need to export multiple grids to the same document, you will need to use a 
+            separate UltraWebGridDocumentExporter control for each grid and pass a reference to the same Report 
+            each time you call the Export() method. Make sure you set the <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> property to 
+            Custom for all of the UltraWebGridDocumentExporter controls except for the first because only the 
+            first control will need to export the document to the page's Response stream. 
+            </p>
+            	<p class="body">
+            The UltraWebGridDocumentExporter has some limitations and does not export all grid features as they 
+            would appear in the browser.
+            </p>
+            	<list type="bullet">
+            		<item>Templated columns will not be exported.  It is not possible for the document exporter to know how to recreate the contents of a templated column in PDF so any templated columns will be excluded from the export.</item>
+            		<item>Any HTML formatting that is set as the value of a string cell will be exported as a literal string rather than being applied as formatting.</item>
+            		<item>Checkbox columns will display as a true/false value rather than as a checkbox</item>
+            		<item>StationaryMarginsOutlookGroupBy settings are currently ignored</item>
+            		<item>Header layouts are ignored. Grids with header layouts will be exported with one header per column</item>
+            		<item>Header images are ignored. Column headers will be exported as normal just without the image that was supplied.</item>
+            	</list>
+            	<p class="body">
+            You can also export the grid to an <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection)">existing section</see>  
+            or to a <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,System.IO.Stream,System.Boolean)">custom stream</see>. 
+            </p>
+            </remarks>
+            <param name="grid">The UltraWebGrid control that is to be exported to the document.</param>
+            <param name="report">An existing report that the new section should be appended to.</param>
+            <returns>The section that the grid is being exported to.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,System.IO.Stream,System.Boolean)">
+            <summary>
+            Exports the grid to a new report and saves the report to the provided stream. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this export method if you want the grid to be exported to a new report. The export method will 
+            automatically create a new report with one section. A reference to the section will be returned from 
+            the method.  
+            </p>
+            <p class="body">
+            The report will be saved to the stream provided. This can be used to save the report as a file, save 
+            it to a database as a binary object, save it to memory for further processing or send it over a 
+            network. 
+            </p>
+            <p class="body">
+            If you set the closeStream parameter to true, the stream will be automatically closed when the export
+            has finished. Otherwise it is your responsibility to close the stream yourself. The best place to do 
+            this is usually in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event where the event argument will have a reference 
+            to the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs.OutputStream">output stream</see>. 
+            </p>
+            <p class="body">
+            Make sure the document exporter's <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> is set to custom when you export to a 
+            stream. The property will automatically get set to Custom when you pass the Export() method a stream
+            parameter. If you change it to Download or InBrowser after you call the Export() method, the report 
+            will be exported to the page's Response stream rather than to the stream you provided. 
+            </p>
+            <p class="body">
+            The export will not happen at the time when the export method is called. For grids that are to be 
+            exported to a custom stream, the export will happen when the page's PreRender event fires. The 
+            export can't happen until this point because the style information isn't complete until PreRender 
+            because of the way application styling works. 
+            </p>
+            <p class="body">
+            Because of the delayed way the export works, each document exporter control can only export one 
+            grid per postback. If you need to export multiple grids to the same document, you will need to use a 
+            separate UltraWebGridDocumentExporter control for each grid and pass a reference to the same Report
+            each time you call the Export() method. 
+            </p>
+            <p class="body">
+            It's not necessary to pass an output stream to the exporter to do a custom export. If export mode is 
+            set to custom and no stream is provided, the grid will be generated in the report and then you can 
+            save the report yourself by calling it's 
+            <see cref="M:Infragistics.Documents.Report.Report.Publish(System.String,Infragistics.Documents.Report.FileFormat)">publish()</see> 
+            method.  The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event which will fire when the grid has finished exporting is a 
+            good place to do this. 
+            </p>
+            <p class="body">
+            The UltraWebGridDocumentExporter has some limitations and does not export all grid features as they 
+            would appear in the browser.
+            </p>
+            <list type="bullet">
+            <item>Templated columns will not be exported.  It is not possible for the document exporter to know how to recreate the contents of a templated column in PDF so any templated columns will be excluded from the export.</item>
+            <item>Any HTML formatting that is set as the value of a string cell will be exported as a literal string rather than being applied as formatting.</item>
+            <item>Checkbox columns will display as a true/false value rather than as a checkbox</item>
+            <item>StationaryMarginsOutlookGroupBy settings are currently ignored</item>
+            <item>Header layouts are ignored. Grids with header layouts will be exported with one header per column</item>
+            <item>Header images are ignored. Column headers will be exported as normal just without the image that was supplied.</item>
+            </list>
+            <p class="body">
+            You can also export the grid to an <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection,System.IO.Stream,System.Boolean)">existing 
+            section</see>  or to <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid)">the page's response stream</see>. 
+            </p>
+            </remarks>
+            <param name="grid">The UltraWebGrid control that is to be exported to the document.</param>
+            <param name="stream">A stream to save the generated report.</param>
+            <param name="closeStream">
+            Whether to close the stream after the export is finished. If you pass false to this parameter,
+            you can handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event and close the stream yourself there. 
+            </param>
+            <returns>The section that the grid is being exported to.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection,System.IO.Stream,System.Boolean)">
+            <summary>
+            Exports the grid to a section of an existing report and saves the report to a stream. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this export method is you want the grid to be exported to a particular section of an existing 
+            report. This can be useful if the grid isn't going to be in the first or last section of the report.
+            </p>
+            <p class="body">
+            The report will be saved to the stream provided. This can be used to save the report as a file, save 
+            it to a database as a binary object, save it to memory for further processing or send it over a 
+            network. 
+            </p>
+            <p class="body">
+            If you set the closeStream parameter to true, the stream will be automatically closed when the export
+            has finished. Otherwise it is your responsibility to close the stream yourself. The best place to do 
+            this is usually in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event where the event argument will have a reference 
+            to the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs.OutputStream">output stream</see>. 
+            </p>
+            <p class="body">
+            Make sure the document exporter's <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> is set to custom when you export to a 
+            stream. The property will automatically get set to Custom when you pass the Export() method a stream
+            parameter. If you change it to Download or InBrowser after you call the Export() method, the report 
+            will be exported to the page's Response stream rather than to the stream you provided. 
+            </p>
+            <p class="body">
+            The export will not happen at the time when the export method is called. For grids that are to be 
+            exported to a custom stream, the export will happen when the page's PreRender event fires. The 
+            export can't happen until this point because the style information isn't complete until PreRender 
+            because of the way application styling works. 
+            </p>
+            <p class="body">
+            Because of the delayed way the export works, each document exporter control can only export one 
+            grid per postback. If you need to export multiple grids to the same document, you will need to use a 
+            separate UltraWebGridDocumentExporter control for each grid and pass a reference to the same Report
+            each time you call the Export() method. 
+            </p>
+            <p class="body">
+            It's not necessary to pass an output stream to the exporter to do a custom export. If export mode is 
+            set to custom and no stream is provided, the grid will be generated in the report and then you can 
+            save the report yourself by calling it's 
+            <see cref="M:Infragistics.Documents.Report.Report.Publish(System.String,Infragistics.Documents.Report.FileFormat)">publish()</see> 
+            method.  The <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event which will fire when the grid has finished exporting is a 
+            good place to do this. 
+            </p>
+            <p class="body">
+            The UltraWebGridDocumentExporter has some limitations and does not export all grid features as they 
+            would appear in the browser.
+            </p>
+            <list type="bullet">
+            <item>Templated columns will not be exported.  It is not possible for the document exporter to know how to recreate the contents of a templated column in PDF so any templated columns will be excluded from the export.</item>
+            <item>Any HTML formatting that is set as the value of a string cell will be exported as a literal string rather than being applied as formatting.</item>
+            <item>Checkbox columns will display as a true/false value rather than as a checkbox</item>
+            <item>StationaryMarginsOutlookGroupBy settings are currently ignored</item>
+            <item>Header layouts are ignored. Grids with header layouts will be exported with one header per column</item>
+            <item>Header images are ignored. Column headers will be exported as normal just without the image that was supplied.</item>
+            </list>
+            <p class="body">
+            You can also export the grid to a <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid,Infragistics.Documents.Report.Section.ISection,System.IO.Stream,System.Boolean)">new report</see>
+            or to <see cref="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export(Infragistics.WebUI.UltraWebGrid.UltraWebGrid)">the page's response stream</see>. 
+            </p>
+            </remarks>
+            <param name="grid">The UltraWebGrid control that is to be exported to the document.</param>
+            <param name="section">The section of the document that the grid will be exported to.</param>
+            <param name="stream">A stream to save the generated report.</param>
+            <param name="closeStream">
+            Whether to close the stream after the export is finished. If you pass false to this parameter,
+            you can handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> event and close the stream yourself there. 
+            </param>
+            <returns>The section that the grid is being exported to.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Export">
+            <summary>
+            Event handler for the page's PreRender event.
+            </summary>
+            <remarks>
+            <p class="body">
+            Call this method to trigger the export internally. This method configures the grid for export,
+            collects all the style information and then calls RenderDocument to create the elements 
+            in the report. It can be accessed publically by calling the Export() overloads that 
+            take an UltraWebGrid object as a parameter. 
+            </p>
+            <p class="body">
+            This method fires the begin export method and binds to the grid to the complete 
+            data source if <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DataExportMode"/> is set to AllInDataSource and LoadOnDemand or 
+            paging is turned on. 
+            </p>
+            <p class="body">
+            If the <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> is set to Custom and a file stream is passed to the document
+            exporter, the stream will be written straight away. If the ExportMode is set to Download or 
+            InBrowser, the report will be written to the response stream during the Render part of the 
+            page's lifecycle to give the rest of the page a chance to run.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RenderDocument">
+            <summary>
+            Iterates through the grid and renders the grid elements to the section of the generated report that was provided to the Export method.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RenderDocumentToResponse(System.Web.UI.HtmlTextWriter,System.Web.UI.Control)">
+            <summary>
+            Delegate to handle the page's Render.
+            </summary>
+            <remarks>
+            <p class="body">
+            This is where the export happens if the <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode"/> property isn't set
+            to custom. Processing of the page lifecycle will end after the export has finished. 
+            </p>
+            </remarks>
+            <param name="writer">The page's HtmlTextWriter stream</param>
+            <param name="control">The outermost element of the page.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnBeginExport(Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs)">
+            <summary>
+            Invoked when the export is about to begin. 
+            </summary>
+            <remarks>
+            <p class="body">This method generates the BeginExport event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">DocumentExportEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnEndExport(Infragistics.WebUI.UltraWebGrid.DocumentExport.EndExportEventArgs)">
+            <summary>
+            Invoked after the export has completed. 
+            </summary>
+            <remarks>
+            <p class="body">This method generates the EndExport event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">DocumentExportEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnInitializeRow(Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs)">
+            <summary>
+            Invoked before the export of each row. Gives the opportunity to cancel the export of the row.
+            </summary>
+            <remarks>
+            	<p class="body">This method generates the EndExport event.</p>
+            	<p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">DocumentExportEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnRowExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportingEventArgs)">
+            <summary>
+            Invoked before a row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the RowExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">RowExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnRowExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs)">
+            <summary>
+            Invoked after a row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the RowExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">RowExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnCellExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs)">
+            <summary>
+            Invoked before a cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the CellExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">CellExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnCellExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs)">
+            <summary>
+            Invoked after a cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the CellExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">CellExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnHeaderRowExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs)">
+            <summary>
+            Invoked before a header row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the HeaderRowExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginRowExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnHeaderRowExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs)">
+            <summary>
+            Invoked after a header row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the HeaderRowExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginRowExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnHeaderCellExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs)">
+            <summary>
+            Invoked before a header cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the HeaderCellExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginCellExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnHeaderCellExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs)">
+            <summary>
+            Invoked after a header cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the HeaderCellExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginCellExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnFooterRowExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs)">
+            <summary>
+            Invoked before a footer row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the FooterRowExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginRowExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnFooterRowExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs)">
+            <summary>
+            Invoked after a footer row is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the FooterRowExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginRowExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnFooterCellExporting(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs)">
+            <summary>
+            Invoked before a footer cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the FooterCellExporting event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginCellExportingEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.OnFooterCellExported(Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs)">
+            <summary>
+            Invoked after a footer cell is exported.
+            </summary>
+            <remarks>
+            <p class="body">This method generates the FooterCellExported event.</p>
+            <p class="body">It is for internal use only. It shouldn't be called by application code.</p>
+            </remarks>
+            <param name="e">MarginCellExportedEventArgs event argument containing information to be passed to the event.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.ShouldSerializeMargins">
+            <summary>
+            Returns true if the value is not the default.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.ResetMargins">
+            <summary>
+            Resets the property back to its default value.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.ShouldSerializeTargetPaperSize">
+            <summary>
+            Returns true if the value is not the default.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.ResetTargetPaperSize">
+            <summary>
+            Resets the property back to its default value.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.LoadViewState(System.Object)">
+            <summary>
+            Loads ViewState of the control.
+            </summary>
+            <remarks>
+            <p class="body">Called automatically by the control to rehydrate the server side object based on it's persisted viewstate.</p>
+            </remarks>
+            <param name="savedState">The viewstate of the grid that was returned by the page.</param>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.SaveViewState">
+            <summary>
+            Persists the object along with it's child elements into the Page's ViewState.
+            </summary>
+            <remarks>Called automatically to persist the object into ViewState</remarks>
+            <returns>An object array containing ViewState information.</returns>
+        </member>
+        <member name="M:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.TrackViewState">
+            <summary>
+            Marks modified elements for serialization into ViewState.
+            </summary>
+            <remarks>
+            	<p class="body">Called automatically by the control to determine which properties need to be persisted into ViewState.</p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.BeginExport">
+            <summary>
+            Fires when the exporter begins the export process. 
+            </summary>
+            <remarks>
+            <p class="body">
+            This event fires before any of the export logic is run. It will fire once for each time the Export() 
+            method is called. 
+            </p>
+            <p class="body">
+            Use the event to configure the grid before exporting. Applying changes here will ensure that they 
+            will be set before the exporter starts to export the grid. This can include things like applying 
+            styles, changing the grid header and footer options or grouping and ungrouping columns.
+            </p>
+            <p class="body">
+            If you need to make changes to the styling of the grid it is important that you make them in the 
+            BeginExport method. No changes made to grid element styles in any events fired later in the export 
+            process will be applied to the grid because of the performance overhead of parsing the style 
+            information. Any style changes that you need to make in any of the other export events will need to 
+            be applied directly to the Report elements rather than to the grid elements.
+            </p>
+            <p class="body">
+            The BeginExport event is not cancellable.
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport">
+            <summary>
+            Fires after the exporter has finished exporting the grid to the report.
+            </summary>
+            <remarks>
+            <p class="body">
+            Fires after the grid has been created in the report but before the report is written to a stream. 
+            </p>
+            <p class="body">
+            Use this event to do any post export processing on the exported report that is necessary before the 
+            report is written to the Page's Response stream. 
+            </p>
+            <p class="body">
+            It can be used to set any properties set in <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.BeginExport"/> back to their original values 
+            if the page is going to be displayed again after a <see cref="T:Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode">custom export</see>. This 
+            isn't necessary if the report is going to be downloaded by the browser because the grid's HTML will 
+            never be sent back to the browser. 
+            </p>
+            <p class="body">
+            It can also be used to add any extra content to the section that should appear after the grid. Extra 
+            content can be added by calling the methods of the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs.Section"/> 
+            property of the event argument.
+            </p>
+            <p class="body">
+            The EndExport event can't be cancelled. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow">
+            <summary>
+            Fires before the export of each row.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this event to choose which rows to export. You can cancel the export of the current row, 
+            the row's children, the rest of the row's siblings or the rest of the rows in the grid. 
+            </p>
+            <p class="body">
+            To cancel the export of the current row set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipRow">SkipRow</see> property of the event argument 
+            to true. This will have the same effect as cancelling the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting"/> event.
+            </p>
+            <p class="body">
+            To cancel the export of the row's children set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipDescendants">SkipDescendants</see> property to 
+            true. The current row will still be exported, but none of the row's child rows will be processed. 
+            This will have the same effect as cancelling the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting"/> event for each of the 
+            child rows. 
+            </p>
+            <p class="body">
+            To cancel the export of the rest of the row's siblings set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.SkipSiblings">SkipSiblings</see> property of the event 
+            argument to true. This will cancel the export of any other rows in the same rows collection that 
+            haven't yet been export.  It won't affect footer rows. You will need to cancel the 
+            <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting"/> event to cancel the export of the 
+            footers. 
+            </p>
+            <p class="body">
+            To cancel the rest of the rows in the grid set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportInitializeRowEventArgs.TerminateExport">TerminateExport</see> property to 
+            true. This will stop the grid from exporting any more elements in the grid. No more document exporting
+            events except for the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.EndExport"/> will fire. 
+            </p>
+            <p class="body">
+            This event can also be used to configure the 
+            <see cref="T:Infragistics.WebUI.UltraWebGrid.UltraGridRow">UltraGridRow</see> before it is exported. 
+            For example the row's styles can be modified for export by setting the UltraGridRow's 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.UltraGridRow.Style"/> property. Any changes you make to 
+            the UltraGridRow object will be persisted after the export has finished so it might be more convenient
+            to apply changes directly to the document objects in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting"/> event. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting">
+            <summary>
+            Fires before the row elements in the document are created. This event can be cancelled to stop the row being exported.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this event to customize the way the row is exported. You can add new elements to the document 
+            to appear before the current row or cancel the ReportExporting event and handle the export yourself. 
+            </p>
+            	<p class="body">
+            This event can be cancelled to skip some rows during the export. This is the same as setting the 
+            SkipRow event argument property true in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.InitializeRow"/> event. For more control over 
+            which rows are to be exported use the InitializeRow event instead. 
+            </p>
+            	<p class="body">
+            This event can also be used to adjust the row's properties before it exports. Any changes made to 
+            the UltraGridRow's <see cref="P:Infragistics.WebUI.UltraWebGrid.UltraGridRow.Style"/> property in this 
+            event will be applied to the exported row in the document. You can also apply style directly to the 
+            document objects as they are being exported in the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting"/> event. 
+            </p>
+            	<p class="body">
+            This event only fires for data rows and group by rows. It does not fire for header or footer rows. 
+            Handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExporting"/> and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting"/> events for header 
+            and footer rows. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExported">
+            <summary>
+            Fires after the row has finished exporting.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to customize the export. You can add extra elements to the document using the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentRowEventArgs.ContainingTable"/> property of the event argument. Any extra elements that are added will 
+            appear directly after the row that was exported. 
+            </p>
+            <p class="body">
+            This event can also be used to customize the row that was generated during the export using the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.RowExportedEventArgs.ReportRow"/> property of the event argument. Style properties like 
+            Height and Margins can be adjusted after the entire row has been exported. 
+            </p>
+            <p class="body">
+            This event only fires for normal data rows and group by rows. It does not fire for header or footer 
+            rows. Handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExported"/> and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExported"/> events for header
+            and footer rows. 
+            </p>
+            <p class="body">
+            This event won't be fired if the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.RowExporting"/> event was cancelled. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting">
+            <summary>
+            Fires before a cell is exported. This event can be cancelled to stop the cell being exported. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this to customize the way the cell is exported.
+            </p>
+            <p class="body">
+            Set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.ExportValue"/> event argument property to change the 
+            value of the exported cell. The value can be set to any type of object and the result of the 
+            ToString() method will be displayed in the cell. If ExportValue isn't set, the cell's formatted 
+            text will be displayed instead. 
+            </p>
+            <p class="body">
+            Use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.ReportCell"/> property to customize the contents of the 
+            cell. You can use this to add new items to the exported cell or to completely override the way 
+            that the cell exports. If you want to completely override the cell's rendering, set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.Cancel"/> property to true to cancel the default export logic.
+            </p>
+            <p class="body">
+            Styling set on the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.GridCell"/> event argument property won't 
+            be applied to the exported cell. Apply any style changes that you want to make directly to the 
+            ReportCell. 
+            </p>
+            <p class="body">
+            This event can be cancelled by setting the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportingEventArgs.Cancel"/> property 
+            of the event argument to true. When the event is cancelled, the logic to export the contents of 
+            the cell won't be run but the cell element itself will still be created.
+            </p>
+            <p class="body">
+            This event will only be fired for data cells in the grid. Handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExporting"/> 
+            and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExporting"/> events for header and footer cells. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExported">
+            <summary>
+            Fired after the cell has finished exporting. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this event to customize the way the cell is exported. Extra elements that appear after the 
+            cell's text can be added to the generated cell using the
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.CellExportedEventArgs.ReportCell"/> property of the event argument. Style properties 
+            of the ReportCell like Alignment, Background and Borders can also be modified. 
+            </p>
+            <p class="body">
+            This event will only be fired for data cells in the grid. Handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExported"/> 
+            and <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExported"/> events for header and footer cells. 
+            </p>
+            <p class="body">
+            This event will not be fired if the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.CellExporting"/> event was cancelled. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExporting">
+            <summary>
+            Fired before a header row is exported. This event can be cancelled to stop the header from being exported to the document.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Handle this event to customize the way a header row is exported. Use the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable"/> property of the event argument to add new elements 
+            to the document to appear before the current row. 
+            </p>
+            	<p class="body">
+            Set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs.Cancel"/> property to either skip exporting the 
+            header or so you can to handle the export yourself. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExported">
+            <summary>
+            Fired after a header row has finished exporting. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Handle this event to customize the way a header row is exported. Use the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable"/> property of the event argument to add new 
+            elements to the document to appear after the header that was just exported. 
+            </p>
+            <p class="body">
+            You can also use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs.ReportRow"/> property of the event 
+            argument to customize the header row that was generated. You can adjust style properties like 
+            Height and Margins. 
+            </p>
+            <p class="body">
+            This event won't be fired if the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderRowExporting"/> event was cancelled. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExporting">
+            <summary>
+            Fired before a header cell is exported. This event can be cancelled to stop the header cell from being exported to the document.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Use this to customize the way the header cell is exported.
+            </p>
+            	<p class="body">
+            Set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.ExportValue"/> event argument property to change 
+            the value of the exported header cell. The value can be set to any type of object and the result 
+            of the ToString() method will be displayed in the cell. If ExportValue isn't set, the column's 
+            header caption will be displayed instead. 
+            </p>
+            	<p class="body">
+            Use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.ReportCell"/> property to customize the contents 
+            of the cell. You can use this to add new items to the exported cell or to completely override the 
+            way that the cell exports. If you want to completely override the cell's rendering, set the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.Cancel"/> property to true to cancel the default export 
+            logic.
+            </p>
+            	<p class="body">
+            This event can be cancelled by setting the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.Cancel"/> 
+            property of the event argument to true. When the event is cancelled, the logic to export the 
+            contents of the header won't be run but the cell element itself will still be created.
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.HeaderCellExported">
+            <summary>
+            Fired after the header cell has finished exporting. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this event to customize the way the header cell is exported. Extra elements that appear after 
+            the cell's text can be added to the generated cell using the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.ReportCell"/> property of the event argument. Style 
+            properties of the ReportCell like Alignment, Background and Borders can also be modified. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting">
+            <summary>
+            Fired before a footer row is exported. This event can be cancelled to stop the footer from being exported to the document.
+            </summary>
+            <remarks>
+            	<p class="body">
+            Handle this event to customize the way a footer row is exported. Use the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable"/> property of the event argument to add new elements 
+            to the document to appear before the footer row. 
+            </p>
+            	<p class="body">
+            Set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportingEventArgs.Cancel"/> property to either skip exporting the footer 
+            or so you can to handle the export yourself. 
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExported">
+            <summary>
+            Fired after a footer row has finished exporting. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Handle this event to customize the way a footer row is exported. Use the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowEventArgs.ContainingTable"/> property of the event argument to add new elements 
+            to the document to appear after the footer that was just exported. 
+            </p>
+            <p class="body">
+            You can also use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginRowExportedEventArgs.ReportRow"/> property of the event argument 
+            to customize the footer row that was generated. You can adjust style properties like Height and 
+            Margins. 
+            </p>
+            <p class="body">
+            This event won't be fired if the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterRowExporting"/> event was cancelled.
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExporting">
+            <summary>
+            Fired before a footer cell is exported. This event can be cancelled to stop the footer cell from being exported to the document.
+            </summary>
+            <remarks>
+            	<p class="body">Use this to customize the way the footer cell is exported.</p>
+            	<p class="body">Set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.ExportValue"/> event argument property to change the value of the exported footer cell.  The value can be set to any type of object and the result of the ToString() method will be displayed in the cell.  If ExportValue isn't set, the footer's caption text will be displayed instead.</p>
+            	<p class="body">Use the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.ReportCell"/> property to customize the contents of the cell.  You can use this to add new items to the exported cell or to completely override the way that the cell exports.  If you want to completely override the cell's rendering, set the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.Cancel"/> property to true to cancel the default export logic.</p>
+            	<p class="body">This event can be cancelled by setting the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportingEventArgs.Cancel"/> 
+            property of the event argument to true.  When the event is cancelled, the logic to export the contents of the footer won't be run but the cell element itself will still be created.</p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.FooterCellExported">
+            <summary>
+            Fired after the footer cell has finished exporting. 
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this event to customize the way the footer cell is exported. Extra elements that appear after 
+            the cell's text can be added to the generated cell using the 
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.MarginCellExportedEventArgs.ReportCell"/> property of the event argument. Style properties 
+            of the ReportCell like Alignment, Background and Borders can also be modified. 
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadName">
+            <summary>
+            Filename given to the document downloaded to the browser during export.
+            </summary>
+            <remarks>
+            	<p class="body">Use this property to customize the filename given to the document file when it is downloaded by the browser. If no filename is provided, the filename will be set to a default filename like document.pdf.</p>
+            	<p class="body">The filename must be a legal file name on the client's operating system and must end with the right file extension for the type of file that is being exported. If no file extension is provided, one will be automatically added based on the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format"/> of the document.</p>
+            	<p class="body">The file extension used for each format are:</p>
+            	<list type="bullet">
+            		<item>PDF documents: .pdf</item>
+            		<item>XPS documents: .xps</item>
+            		<item>Text documents: .txt</item>
+            	</list>
+            	<p class="body">For security reasons, the property strictly filters the filename, and may truncate long filenames 
+            or those that specify a path.</p>
+            	<p class="body">The filename should not contain any path information because the place where the user will
+            be prompted to save the file will depend on the browser. Path characters like slashes will be removed from the filename.</p>
+            	<p class="body">It is recommended that the download filename be dynamically determined by developers' web applications, because some versions of the Microsoft Internet Explorer browser may fail to open the spreadsheet as expected if a file of the same name already exists within the end user's Temporary Internet Files cache.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format">
+            <summary>
+            Determines whether to save the report as a PDF or XPS or plain text document.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.AutoSizeRows">
+            <summary>
+            Determines whether document rows and columns will be automatically resized to display contents of grid cells or if grid contents should be cropped.
+            </summary>
+            <remarks>
+            	<p class="body">
+            When this is set to true, the height of the rows will increase to accommodate cells with text that 
+            is too long to be displayed. 
+            </p>
+            	<p class="body">
+            When it is set to false, the height and width of the rows will be respected and any extra text 
+            will be clipped. Set this to false if you want to work out the width and height of the columns 
+            yourself.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.TargetPaperOrientation">
+            <summary>
+            Sets whether the section that the grid is exported to should have landscape or portrait paper orientation.
+            </summary>
+            <remarks><p class="body">Use this to customize the page orientation for the pages that the grid will be exported to.  This will only affect the grid's section.  Other sections in the document can have different page orientations.</p></remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Margins">
+            <summary>
+            Sets the size of the margins of the section that the grid is being exported to.
+            </summary>
+            <remarks>
+            	<p class="body">Use this to customize the margin widths for the pages for the section that the grid will be exported to.  This will only affect the grid's section. Other sections in the document can have different margin settings.</p>
+            	<p class="body">The margin sizes are measured in points.</p>
+            	<p class="body">You can either use a predefined size like Narrow, Normal or Wide from the <see cref="T:Infragistics.Documents.Report.PageMargins"/> object or create a new PageMargins object with a custom size for each edge.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.TargetPaperSize">
+            <summary>
+            Sets the size of the page that the grid will be exported to.
+            </summary>
+            <remarks>
+            	<p class="body">Use this to customize the size of the pages for the section that the grid will be exported to. This will only affect the grid's section. Other sections in the document can have different page sizes.</p>
+            	<p class="body">The page size is measured in points.</p>
+            	<p class="body">You can either use a predefined size like A3, A4 or A5 from the <see cref="T:Infragistics.Documents.Report.PageSizes"/> enumeration or create a new <see cref="T:Infragistics.Documents.Report.PageSize"/> object with a custom width and height.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.ExportResources">
+            <summary>
+            Contains information about external resources like fonts that are needed for the export.
+            </summary>
+            <remarks>
+            	<p class="body">Use this property to set the path to the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontDirectory">directory</see> that the <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter"/> should use to load external fonts and to change whether the fonts will be
+            <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.ExportResources.FontsEmbedded">embedded</see> in the document.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DataExportMode">
+            <summary>
+            Determines whether the grid will export the entire set of data if the grid has <see cref="P:Infragistics.WebUI.UltraWebGrid.Pager.AllowPaging">paging</see> or <see cref="T:Infragistics.WebUI.UltraWebGrid.LoadOnDemand">LoadOnDemand</see> enabled.
+            </summary>
+            <remarks>
+            	<p class="body">If paging or LoadOnDemand are enabled and the property is set to <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DataExportMode">DataExportMode.AllDataInDataSource</see>, the exporter control will bind the grid to the entire data source before exporting and create a document that contains all of the rows that would be displayed if paging or LoadOnDemand were not enabled.  The grid will do this by disabling LoadOnDemand and paging and running the data binding logic again.</p>
+            	<p class="body">If the property is set to <see cref="T:Infragistics.WebUI.UltraWebGrid.DocumentExport.DataExportMode">DataExportMode.DataInGridOnly</see>, 
+            the grid will only export the rows that are currently visible in the grid.  Use this if you only want to display the current page of data in a paged grid or if you only want to display the rows that the user has expanded using LoadOnDemand.</p>
+            	<p class="body">If your grid does not use paging or  LoadOnDemand, it doesn't matter which setting you use. 
+            The grid will only try to bind to the entire data source if LoadOnDemand or Paging is enabled.</p>
+            	<p class="body">If you want to programmatically load a specific set of rows into your grid, set the DataExportMode to DataInGridOnly, handle the <see cref="E:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.BeginExport"/> method and then load the required rows into your grid before the grid starts to export.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.TargetPaperSizeResolved">
+            <summary>
+            Returns the height and width of the page in points.
+            </summary>
+            <remarks><p class="body">It automatically takes page orientation into account so you don't need to worry about whether the page is in landscape or portrait mode. It also automatically adds any margins.</p></remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadNameResolved">
+            <summary>
+            Looks
+            </summary>
+            <remarks>
+            	<p class="body">If a suggested name was set through the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadName"/> property, it is returned.  Otherwise a default file name like document.pdf is generated and will be used.</p>
+            	<p class="body">If the suggested download name doesn't end with the right file extension for the document type (.pdf, .xps or .txt) then the file extension will be automatically added.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadExtension">
+            <summary>
+            Returns the default download extension for the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format"/> that is being exported.
+            </summary>
+            <remarks>
+            	<p class="body">Used by the GetDownloadName() method when it generates the download name from <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.DownloadName"/> provided by the user and when it creates a default download name.</p>
+            	<p class="body">Returns "pdf" for PDF documents, "xps" for XPS documents and "txt" for PlainText documents.
+            Returns an empty string if the FileFormat isn't recognised.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.MimeType">
+            <summary>
+            Returns the MimeType that should be used for the <see cref="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.Format"/> that's being exported.
+            </summary>
+            <remarks>
+            	<p class="body">The mimetype that is used currently can not be changed.</p>
+            	<p class="body">The mimetype will be "application/pdf" for PDF documents, "application/vnd.ms-xpsdocument" for XPS documents and "text/plain" for PlainText documents.  If Format is not recognised, the propery will return null.</p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.UltraWebGrid.DocumentExport.UltraWebGridDocumentExporter.About">
+            <summary>
+            The purpose of the property is to expose itself in the designer and provide a button to click on to show the about box of the grid.
+            </summary>
+            <remarks>
+            The property always returns null.
+            The property type editor exposes a button tha opens the about box of the exporter.
+            </remarks>
+        </member>
+    </members>
+</doc>

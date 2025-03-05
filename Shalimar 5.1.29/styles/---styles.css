@@ -1,0 +1,1263 @@
+﻿body 
+{
+color: #666666;
+font-family: 'RobotoDraft', 'Roboto', sans-serif;
+font-size: 14px;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin:0px
+}
+
+.topRow
+{
+	
+    margin-top: 26px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+	
+/* Pen Title */
+.pen-title {
+  padding: 5px 0;
+  text-align: center;
+  letter-spacing: 2px;
+text-align: center;
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #23558F;
+}
+.pen-title span a {
+  color: #23558F;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Form Module */
+.form-module {
+  position: relative;
+  background: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  border-top: 5px solid #23558F;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+.form-module .toggle {
+  cursor: pointer;
+  position: absolute;
+  top: -0;
+  right: -0;
+  background: #23558F;
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.form-module .toggle .tooltip {
+  position: absolute;
+  top: 5px;
+  right: -65px;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+  width: auto;
+  padding: 5px;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.form-module .toggle .tooltip:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  display: block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid rgba(0, 0, 0, 0.6);
+}
+.form-module .form {
+  display: none;
+  padding: 40px;
+}
+.form-module .form:nth-child(2) {
+  display: block;
+}
+.form-module h2 {
+  margin: 0 0 20px;
+  color: #23558F;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+.form-module input {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module input:focus {
+  border: 1px solid #23558F;
+  color: #333333;
+}
+.form-module button {
+  cursor: pointer;
+  background: #23558F;
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module button:hover {
+  background: #23558F;
+}
+.form-module .cta {
+  background: #f2f2f2;
+  width: 100%;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 12px;
+  text-align: center;
+}
+.form-module .cta a {
+  color: #333333;
+  text-decoration: none;
+}
+
+
+
+.HeaderStyle
+{
+
+	 height:25px;
+	 font-family:Verdana;
+	 font-size:12px;
+	 font-weight:bold;	
+	 color:Black;
+	 background-color:#e7e7e7;
+}
+
+.HeaderStyle_Ticketing
+{
+	 height:25px;
+	 font-family:Verdana;
+	 font-size:12px;
+	 font-weight:bold;	
+	 color:Black;
+}
+
+
+.Generallabel
+{
+	 font-family:Verdana;
+	 font-size:12px;	 
+	 color:Black;
+}
+
+.Errorlabel
+{
+	 font-family:Verdana;
+	 font-size:10px;	 
+	 color:Red;
+}
+
+.ButtonStyle
+{
+	background-color:#23558F;
+	COLOR: White;
+	border-width: thin;
+	border-color:Blue; 
+  	font-family: verdana; 
+	font-size: 10pt;
+	font-weight: bold; 
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    width: 182px;
+    cursor:pointer
+	background-Image:url(../images/Voucher.png);
+
+}
+
+.TableBorder
+{
+   
+
+}
+
+.txtbox
+{
+    font-family:Verdana; 
+    font-size:8pt; 
+    color:#000000; 
+    padding-left:3px;        
+}
+
+.GridHeader
+{
+	background-image: url(../../../inetpub/wwwroot/FMSetup/styles/images/PageBG.jpg);
+}
+
+.GridFrame
+{
+	background-color:#F9FAFF;
+}
+
+.GridItem
+{
+	background-color:#F9FAFF;
+}
+
+.TicketAvailable
+{
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#F9FAFF;
+ 	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+
+    background-image:url("../images/avaiable.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }
+.TicketConfirmedTransit
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:Maroon;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }  
+
+.TicketConfirmedTelenor
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#077B4E;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+    
+.TicketConfirmed
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#23558F;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+ 	background-image:url(../images/avaiableCheck.png);
+    }  
+.TicketConfirmedladyTelenor
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#25bbc6;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+ 
+    }  
+
+
+.TicketConfirmedlady
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#CB2A7A;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+
+.TicketConfirmedladyTrasit
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#077B4E;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+
+
+.TicketBooked
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#A4BEF0;
+    BORDER-RIGHT: #000000 thin solid; 
+     BORDER-TOP: #000000 thin solid; 
+     BORDER-LEFT: #000000 thin solid; 
+     BORDER-BOTTOM: #000000 thin solid; 
+     font-weight:bold;
+     font-family:Verdana;
+     color:#000000;
+     font-size:12pt;
+     text-align:center;
+     vertical-align:middle;
+     cursor:pointer;
+
+    	background-image:url("../images/male.png");
+
+			background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+.TicketBookedTelenor
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#33cc99;
+    BORDER-RIGHT: #000000 thin solid; 
+     BORDER-TOP: #000000 thin solid; 
+     BORDER-LEFT: #000000 thin solid; 
+     BORDER-BOTTOM: #000000 thin solid; 
+     font-weight:bold;
+     font-family:Verdana;
+     color:#000000;
+     font-size:12pt;
+     text-align:center;
+     vertical-align:middle;
+     cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/male.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+.TicketBookedlady
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color: #FF99CC;
+    BORDER-RIGHT: #000000 thin solid; 
+ BORDER-TOP: #000000 thin solid; 
+ BORDER-LEFT: #000000 thin solid; 
+ BORDER-BOTTOM: #000000 thin solid; 
+ font-weight:bold;
+ font-family:Verdana;
+ color:#000000;
+ font-size:12pt;
+ text-align:center;
+ vertical-align:middle;
+    cursor:pointer;
+
+    background-image:url("../images/booking.png");
+			
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+
+.TicketReserved
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:Gray;
+    color:White;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+ 
+    	background-image:url("../images/reserved.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    } 
+    
+.linkButton
+{
+    font-family:Verdana;
+	 font-size:10px;	 
+	 color:Blue;
+    }
+    
+    
+                .ProgressBar
+            {
+
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: red;
+    font-family: verdana;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    padding-top: 45%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1000 !important;
+            }    
+
+.ProgressBarnone
+            {
+            }    
+body 
+{
+color: #666666;
+font-family: 'RobotoDraft', 'Roboto', sans-serif;
+font-size: 14px;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin:0px
+}
+
+.topRow
+{
+	
+    margin-top: 26px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+	
+/* Pen Title */
+.pen-title {
+  padding: 5px 0;
+  text-align: center;
+  letter-spacing: 2px;
+text-align: center;
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #23558F;
+}
+.pen-title span a {
+  color: #23558F;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Form Module */
+.form-module {
+  position: relative;
+  background: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  border-top: 5px solid #23558F;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+.form-module .toggle {
+  cursor: pointer;
+  position: absolute;
+  top: -0;
+  right: -0;
+  background: #23558F;
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.form-module .toggle .tooltip {
+  position: absolute;
+  top: 5px;
+  right: -65px;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+  width: auto;
+  padding: 5px;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.form-module .toggle .tooltip:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  display: block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid rgba(0, 0, 0, 0.6);
+}
+.form-module .form {
+  display: none;
+  padding: 40px;
+}
+.form-module .form:nth-child(2) {
+  display: block;
+}
+.form-module h2 {
+  margin: 0 0 20px;
+  color: #23558F;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+.form-module input {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module input:focus {
+  border: 1px solid #23558F;
+  color: #333333;
+}
+.form-module button {
+  cursor: pointer;
+  background: #23558F;
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module button:hover {
+  background: #23558F;
+}
+.form-module .cta {
+  background: #f2f2f2;
+  width: 100%;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 12px;
+  text-align: center;
+}
+.form-module .cta a {
+  color: #333333;
+  text-decoration: none;
+}
+
+
+
+.HeaderStyle
+{
+
+	 height:25px;
+	 font-family:Verdana;
+	 font-size:12px;
+	 font-weight:bold;	
+	 color:Black;
+	 background-color:#e7e7e7;
+}
+
+.HeaderStyle_Ticketing
+{
+	 height:25px;
+	 font-family:Verdana;
+	 font-size:12px;
+	 font-weight:bold;	
+	 color:Black;
+}
+
+
+.Generallabel
+{
+	 font-family:Verdana;
+	 font-size:12px;	 
+	 color:Black;
+}
+
+.Errorlabel
+{
+	 font-family:Verdana;
+	 font-size:10px;	 
+	 color:Red;
+}
+
+.ButtonStyle
+{
+	background-color:#23558F;
+	COLOR: White;
+	border-width: thin;
+	border-color:Blue; 
+  	font-family: verdana; 
+	font-size: 10pt;
+	font-weight: bold; 
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    width: 182px;
+    cursor:pointer
+	background-Image:url(../images/Voucher.png);
+
+}
+
+.TableBorder
+{
+   
+
+}
+
+.txtbox
+{
+    font-family:Verdana; 
+    font-size:8pt; 
+    color:#000000; 
+    padding-left:3px;        
+}
+
+.GridHeader
+{
+	background-image: url(../../../inetpub/wwwroot/FMSetup/styles/images/PageBG.jpg);
+}
+
+.GridFrame
+{
+	background-color:#F9FAFF;
+}
+
+.GridItem
+{
+	background-color:#F9FAFF;
+}
+
+.TicketAvailable
+{
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#F9FAFF;
+ 	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+
+    background-image:url("../images/avaiable.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }
+.TicketConfirmedTransit
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:Maroon;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }  
+
+.TicketConfirmedTelenor
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#077B4E;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+    
+.TicketConfirmed
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#23558F;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+ 	background-image:url(../images/avaiableCheck.png);
+    }  
+.TicketConfirmedladyTelenor
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#25bbc6;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+ 
+    }  
+
+
+.TicketConfirmedlady
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#CB2A7A;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+
+.TicketConfirmedladyTrasit
+{
+    height:25px;
+    color:White;
+    /*border: solid 1 #000000;*/
+    background-color:#077B4E;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    }  
+
+
+.TicketBooked
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#A4BEF0;
+    BORDER-RIGHT: #000000 thin solid; 
+     BORDER-TOP: #000000 thin solid; 
+     BORDER-LEFT: #000000 thin solid; 
+     BORDER-BOTTOM: #000000 thin solid; 
+     font-weight:bold;
+     font-family:Verdana;
+     color:#000000;
+     font-size:12pt;
+     text-align:center;
+     vertical-align:middle;
+     cursor:pointer;
+
+    	background-image:url("../images/male.png");
+
+			background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+.TicketBookedTelenor
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#33cc99;
+    BORDER-RIGHT: #000000 thin solid; 
+     BORDER-TOP: #000000 thin solid; 
+     BORDER-LEFT: #000000 thin solid; 
+     BORDER-BOTTOM: #000000 thin solid; 
+     font-weight:bold;
+     font-family:Verdana;
+     color:#000000;
+     font-size:12pt;
+     text-align:center;
+     vertical-align:middle;
+     cursor:pointer;
+    	background-image:url("../../../inetpub/wwwroot/FMSetup/images/male.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+.TicketBookedlady
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color: #FF99CC;
+    BORDER-RIGHT: #000000 thin solid; 
+ BORDER-TOP: #000000 thin solid; 
+ BORDER-LEFT: #000000 thin solid; 
+ BORDER-BOTTOM: #000000 thin solid; 
+ font-weight:bold;
+ font-family:Verdana;
+ color:#000000;
+ font-size:12pt;
+ text-align:center;
+ vertical-align:middle;
+    cursor:pointer;
+
+    background-image:url("../images/booking.png");
+			
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+}
+
+
+.TicketReserved
+{
+
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:Gray;
+    color:White;
+    BORDER-RIGHT: #000000 thin solid; 
+	BORDER-TOP: #000000 thin solid; 
+	BORDER-LEFT: #000000 thin solid; 
+	BORDER-BOTTOM: #000000 thin solid; 
+	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+    cursor:pointer;
+ 
+    	background-image:url("../images/reserved.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+    } 
+    
+.linkButton
+{
+    font-family:Verdana;
+	 font-size:10px;	 
+	 color:Blue;
+    }
+    
+    
+                .ProgressBar
+            {
+
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: red;
+    font-family: verdana;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    padding-top: 45%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1000 !important;
+            }    
+
+.ProgressBarnone
+            {
+            }    
+    .TicketAvailableTransit
+{
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#82DD38;
+ 	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+
+    background-image:url("../images/avaiable.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }
+
+ .TicketAvailableTransitlady
+{
+    height:25px;
+    /*border: solid 1 #000000;*/
+    background-color:#82DD38;
+ 	font-weight:bold;
+	font-family:Verdana;
+	font-size:12pt;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+
+    background-image:url("../images/lady.png");
+	background-position: 6% center;
+    background-repeat: no-repeat;
+        border-collapse:separate;
+    border:solid #E7E7E7 1px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+      border-left:solid #E7E7E7 1px;
+    border-top:solid #E7E7E7 1px;
+
+
+    }

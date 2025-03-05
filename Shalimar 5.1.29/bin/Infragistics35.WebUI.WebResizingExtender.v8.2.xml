@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics35.WebUI.WebResizingExtender.v8.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.EndCopyrightYear">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.SatelliteContractVersion">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.MajorMinor">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.Build">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.Revision">
+            <summary></summary>
+        </member>
+        <member name="F:Infragistics.WebUI.Shared.WebResizeExtenderAssemblyVersion.Version">
+            <summary></summary>
+        </member>
+        <member name="T:Infragistics.WebUI.ExtenderBase">
+            <summary>
+            Base class for Infragistics.WebUI extenders.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.ExtenderBase.RequireClientState">
+            <summary></summary>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.GetScriptDescriptors(System.Web.UI.Control)">
+            <summary>
+            Generate the script descriptor.
+            </summary>
+            <param name="targetControl">Reference to target control</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.GetScriptReferences">
+            <summary>
+            Generate the script references of scripts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.GetExtenderScriptDescriptor(System.Web.UI.Control)">
+            <summary>
+            Extended class may return ScriptBehaviorDescriptor for its script object.
+            </summary>
+            <param name="targetControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.GetExtenderScriptReference">
+            <summary>
+            Extended class may return ScriptReference for its script object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.OnInit(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.WebUI.ExtenderBase.OnPreRender(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Infragistics.WebUI.ExtenderBase.TargetHtmlElementID">
+            <summary>
+            The id of the target html element.
+            </summary>
+            <remarks>It can be an exact id of any html element or a formatter string for the ClientID of the TargetControl defined by TargetControlID. Example of a resizer for UltraWebTab: "{0}_cp".</remarks>
+        </member>
+        <member name="P:Infragistics.WebUI.ExtenderBase.Enabled">
+            <summary>
+            Option to enable or disable this extender.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.ExtenderBase.StateValue">
+            <summary>
+            Property which is updated by data from the client with the OnInit event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.LocalizedCategoryAttribute.GetLocalizedString(System.String)">
+            <summary>
+            Returns the localized category name.
+            </summary>
+            <param name="value">Name of the category to retreive</param>
+            <returns>The localized string value</returns>
+        </member>
+        <member name="T:Infragistics.WebUI.WebResizingExtender">
+            <summary>
+            Extender which can be attached to a target Control and provides ability to resize html element represented by that target.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.WebResizingExtender.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Infragistics.WebUI.WebResizingExtender.GetExtenderScriptDescriptor(System.Web.UI.Control)">
+            <summary>
+            
+            </summary>
+            <param name="targetControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.WebUI.WebResizingExtender.GetExtenderScriptReference">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ToolTip">
+            <summary>
+            Title for the html element which represents the handle of the resizing frame-element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.OnClientResize">
+            <summary>
+            Client event fired after resizing.  It can be canceled by args.set_cancel(true), where args is the second parameter in the handler function.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.OnClientResizing">
+            <summary>
+            Client event fired while resizing. It can be canceled by args.set_cancel(true), where args is the second parameter in the handler function.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.OnClientMouseOver">
+            <summary>
+            Client event fired when the mouse enters the bounds of the resizing handle.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.OnClientMouseOut">
+            <summary>
+            Client event fired when the mouse leaves the bounds of the resizing handle.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.OnClientInitialize">
+            <summary>
+            Client event fired after a javascript object was initialized.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.HandleClass">
+            <summary>
+            Name of the css class applied to the resizing handle.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.HandleImage">
+            <summary>
+            Name of the url applied to the src of the IMG element which represents the resizing handle.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeOffsetLeft">
+            <summary>
+            Offset in pixels of the left side of the resizing frame-element relative to the left side of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeOffsetTop">
+            <summary>
+            Offset in pixels of the top side of the resizing frame-element relative to the top side of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeOffsetRight">
+            <summary>
+            Offset in pixels of the right side of the resizing frame-element relative to the right side of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeOffsetBottom">
+            <summary>
+            Offset in pixels of the bottom side of the resizing frame-element relative to the bottom side of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.MinimumWidth">
+            <summary>
+            Minimum width of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.MinimumHeight">
+            <summary>
+            Minimum height of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.MaximumWidth">
+            <summary>
+            Maximum width of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.MaximumHeight">
+            <summary>
+            Maximum height of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizingParentType">
+            <summary>
+            Approach to calculate the parent html element of the resizing frame-element.  The resizing element can be inserted into the target html element directly or into the parent(s) of the target element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeBorderWidth">
+            <summary>
+            Width of the border for the resizing frame-element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeBorderStyle">
+            <summary>
+            Style of the border for the resizing frame-element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.ResizeBorderColor">
+            <summary>
+            Color of the border for the resizing frame-element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.TargetWidth">
+            <summary>
+            Width of the target html element in pixels.
+            </summary>
+        </member>
+        <member name="P:Infragistics.WebUI.WebResizingExtender.TargetHeight">
+            <summary>
+            Height of the target html element in pixels.
+            </summary>
+        </member>
+        <member name="T:Infragistics.WebUI.ResizingParentType">
+            <summary>
+            Enumerator for the ResizingParentType property of WebResizingExtender
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.ResizingParentType.Auto">
+            <summary>
+            Parent html element for the resizing element is calculated automatically using the type of the target element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.ResizingParentType.Embedded">
+            <summary>
+            The resizing html element is embedded as a child into the target html element.
+            Note: that will fail if the target does not allow any children.  For example, INPUT.
+            </summary>
+        </member>
+        <member name="F:Infragistics.WebUI.ResizingParentType.External">
+            <summary>
+            The resizing html element is embedded as a child into the parent of the target html element.
+            </summary>
+        </member>
+    </members>
+</doc>

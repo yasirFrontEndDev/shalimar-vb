@@ -1,0 +1,38 @@
+﻿Imports System.Data.Common
+Imports FMovers.Ticketing.DAL
+Imports FMovers.Ticketing.Entity
+Imports FMovers.Ticketing.Online
+
+Public Class OperatedCompany
+
+    Inherits System.Web.UI.Page
+    Private objOnlineImport As eImportUtil
+    Dim objConnection As Object
+    Dim objUser As clsUser
+    Dim objOperator As OperatorCompanies
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Try
+
+            objConnection = ConnectionManager.GetConnection()
+
+
+
+            objOnlineImport = New eImportUtil()
+            Dim dtOnlineRecords As DataTable
+
+            dtOnlineRecords = objOnlineImport.GetAllRecords("OperatedByCompany")
+
+            objOperator = New OperatorCompanies(objConnection)
+            If Not objOperator Is Nothing Then
+                objOperator.ImportAllOperatedCompany(dtOnlineRecords)
+            Else
+                Response.Redirect("ImportOnlineData.aspx?status=failed&m=1")
+            End If
+
+        Catch ex As Exception
+            Response.Redirect("ImportOnlineData.aspx?status=failed&m=1")
+        End Try
+        Response.Redirect("ImportOnlineData.aspx?status=success&m=1")
+    End Sub
+
+End Class

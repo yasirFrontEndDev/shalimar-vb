@@ -1,0 +1,115 @@
+Imports CrystalDecisions.Shared
+Imports CrystalDecisions.CrystalReports.Engine
+Imports FMovers.Ticketing.DAL
+Imports FMovers.Ticketing.Entity
+Imports FMovers.Ticketing.Online
+Imports System.Drawing.Printing
+Imports System.Management
+
+Public Class CommissionReport
+
+
+    Inherits Web.UI.Page
+    Public DateFormat As String
+    Private CurrencySymbol As String
+    Private objConnection As Object
+
+    Protected WithEvents Button1 As System.Web.UI.WebControls.Button
+    Dim rptDoc As ReportDocument
+
+#Region " Web Form Designer Generated Code "
+
+    'This call is required by the Web Form Designer.
+    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+
+    End Sub
+    Protected WithEvents btnWord As System.Web.UI.WebControls.Button
+    Protected WithEvents btnPDF As System.Web.UI.WebControls.Button
+    Protected WithEvents CRV As CrystalDecisions.Web.CrystalReportViewer
+    Protected WithEvents Table1 As System.Web.UI.HtmlControls.HtmlTable
+
+    'NOTE: The following placeholder declaration is required by the Web Form Designer.
+    'Do not delete or move it.
+    Private designerPlaceholderDeclaration As System.Object
+
+    Private Sub Page_Init(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Init
+        'CODEGEN: This method call is required by the Web Form Designer
+        'Do not modify it using the code editor.
+        InitializeComponent()
+    End Sub
+
+#End Region
+
+    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Response.Write(Request.QueryString("from"))
+        'Response.Write(Request.QueryString("to"))
+        Response.Cache.SetCacheability(HttpCacheability.NoCache)
+
+        Dim fileName As String = ""
+
+
+        fileName = Server.MapPath("..\TempDocument\") + "Comission.pdf"
+        rptDoc = CreateReport()
+        If ((System.IO.File.Exists(fileName))) Then
+            System.IO.File.Delete(fileName)
+
+        End If
+
+        rptDoc = CreateReport()
+
+
+        rptDoc.ExportToDisk(ExportFormatType.PortableDocFormat, fileName)
+
+
+        rptDoc.Close()
+        rptDoc.Dispose()
+        GC.Collect()
+
+        Response.Redirect("loadPDF.aspx?Type=Comission", True)
+       
+
+
+    End Sub
+    Public Function FormateDate(ByVal str_Date As String) As String
+        Dim sdate As String() = str_Date.Split("/")
+        Return sdate(2) & "-" & sdate(1) & "-" & sdate(0)
+    End Function
+    Public Function CreateReport() As ReportDocument
+
+        Dim rptsrc As New ReportDocument
+        rptsrc.Load(Request.PhysicalApplicationPath & "Reports/rptCashSheetReport.rpt")
+        cReportUtility.setConnectionInfo(rptsrc)
+        Dim objUser As clsUser
+        objUser = CType(Session("CurrentUser"), clsUser)
+
+        'strDate = strDate.AddDays(1)z
+
+        ' cReportUtility.PassParameter("@Option", "0", rptsrc)
+
+        cReportUtility.PassParameter("@User_ID", Request.QueryString("UserId"), rptsrc)
+        cReportUtility.PassParameter("@Book_Id", Request.QueryString("BookId"), rptsrc)
+
+
+        Return rptsrc
+    End Function
+
+    Private Sub CRV_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles CRV.Load
+
+
+    End Sub
+
+    Private Sub CRV_Navigate(ByVal source As Object, ByVal e As CrystalDecisions.Web.NavigateEventArgs) Handles CRV.Navigate
+
+    End Sub
+
+    Private Sub CRV_Search(ByVal source As Object, ByVal e As CrystalDecisions.Web.SearchEventArgs) Handles CRV.Search
+
+    End Sub
+
+    Protected Sub btnPrint_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrint.Click
+        rptDoc.PrintOptions.PrinterName = cboPrints.SelectedItem.Text
+
+        rptDoc.PrintToPrinter(1, True, 0, 0)
+
+    End Sub
+End Class

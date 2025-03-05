@@ -1,0 +1,1470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{438E4F91-3AE3-499D-961D-7B24A717C426}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FMovers.Ticketing.UI</RootNamespace>
+    <AssemblyName>FMovers.Ticketing.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>FMovers.Ticketing.UI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>FMovers.Ticketing.UI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="GSMCommShared, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\bhattitention\GSMCommShared.dll</HintPath>
+    </Reference>
+    <Reference Include="GSMCommunication, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\bhattitention\GSMCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.0.3541.23206, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Microsoft Sync Framework\2.1\Runtime\ADO.NET\V3.1\x86\Microsoft.Synchronization.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Synchronization.Data.Server, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="PDUConverter, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\bhattitention\PDUConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="RestSharp.Build, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="RS232, Version=1.24.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\bhattitention\RS232.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLServerMerg, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Infragistics35.Documents.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\Common\Infragistics35.Documents.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.Excel.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\Common\Infragistics35.Excel.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.Web.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.Web.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.Misc.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.Misc.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.Shared.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.Shared.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebCalcManager.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebCalcManager.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebChart.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebChart.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebGauge.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebGauge.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebGrid.DocumentExport.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebGrid.DocumentExport.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebGrid.ExcelExport.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebGrid.ExcelExport.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebGrid.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebGrid.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebListbar.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebListbar.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebNavigator.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebNavigator.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebTab.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebTab.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.UltraWebToolbar.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.UltraWebToolbar.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebCombo.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebCombo.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebDataInput.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebDataInput.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebDateChooser.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebDateChooser.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebHtmlEditor.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebHtmlEditor.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebNavBar.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebNavBar.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebResizingExtender.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebResizingExtender.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebSchedule.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebSchedule.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebScheduleDataProvider.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebScheduleDataProvider.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics35.WebUI.WebSpellChecker.v8.2, Version=8.2.20082.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>E:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 2 CLR 3.5\asp.net\bin\Infragistics35.WebUI.WebSpellChecker.v8.2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdvanceReport.aspx" />
+    <Content Include="AdvTicketing.aspx" />
+    <Content Include="DropTimeUI.aspx" />
+    <Content Include="ImportAlertInformation.aspx" />
+    <Content Include="OperatedCompany.aspx" />
+    <Content Include="Reports\BookkaruOnlinePrintReport.aspx" />
+    <Content Include="BookkaruPrintReport.aspx" />
+    <Content Include="Permissions.aspx" />
+    <Content Include="BackUp.aspx" />
+    <Content Include="bin\CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="bin\CrystalDecisions.Enterprise.Framework.dll" />
+    <Content Include="bin\CrystalDecisions.Enterprise.InfoStore.dll" />
+    <Content Include="bin\CrystalDecisions.ReportAppServer.ClientDoc.dll" />
+    <Content Include="bin\CrystalDecisions.ReportAppServer.Controllers.dll" />
+    <Content Include="bin\CrystalDecisions.ReportAppServer.DataDefModel.dll" />
+    <Content Include="bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll" />
+    <Content Include="bin\CrystalDecisions.ReportSource.dll" />
+    <Content Include="bin\CrystalDecisions.Shared.dll" />
+    <Content Include="bin\CrystalDecisions.Web.dll" />
+    <Content Include="bin\FMovers.Ticketing.DAL.dll" />
+    <Content Include="bin\FMovers.Ticketing.DAL.pdb" />
+    <Content Include="bin\FMovers.Ticketing.DAL.xml" />
+    <Content Include="bin\FMovers.Ticketing.Entity.dll" />
+    <Content Include="bin\FMovers.Ticketing.Entity.pdb" />
+    <Content Include="bin\FMovers.Ticketing.Entity.xml" />
+    <Content Include="bin\FMovers.Ticketing.Online.dll" />
+    <Content Include="bin\FMovers.Ticketing.Online.pdb" />
+    <Content Include="bin\FMovers.Ticketing.Online.xml" />
+    <Content Include="bin\Microsoft.Synchronization.Data.dll" />
+    <Content Include="bin\Microsoft.Synchronization.Data.SqlServer.dll" />
+    <Content Include="bin\Microsoft.Synchronization.Data.SqlServerCe.dll" />
+    <Content Include="bin\Microsoft.Synchronization.dll" />
+    <Content Include="blank.aspx" />
+    <Content Include="BlankSeats.aspx" />
+    <Content Include="booking.aspx" />
+    <Content Include="BookingReport.aspx" />
+    <Content Include="CashClosed.aspx" />
+    <Content Include="changepassword.aspx" />
+    <Content Include="city.aspx" />
+    <Content Include="CommissionReportByDate.aspx" />
+    <Content Include="CommissionReportByDateAll.aspx" />
+    <Content Include="common\CommSetting.cs" />
+    <Content Include="importRefreshment.aspx" />
+    <Content Include="OnlinePosition.aspx" />
+    <Content Include="RegisterSystems.aspx" />
+    <Content Include="ETicketingReport.aspx" />
+    <Content Include="DailyDepartureReportByDate.aspx" />
+    <Content Include="DashBoard.aspx" />
+    <Content Include="DaywisePassenger.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="DepartureReportByDate.aspx" />
+    <Content Include="Fares.aspx" />
+    <Content Include="home.aspx" />
+    <Content Include="images\BtnBG.jpg" />
+    <Content Include="images\HeaderBG.jpg" />
+    <Content Include="images\PageBG.jpg" />
+    <Content Include="importcities.aspx" />
+    <Content Include="importfare.aspx" />
+    <Content Include="ImportOnlineData.aspx" />
+    <Content Include="importroutes.aspx" />
+    <Content Include="importrouteschedules.aspx" />
+    <Content Include="importterminals.aspx" />
+    <Content Include="importusers.aspx" />
+    <Content Include="importvehicles.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="print.asp" />
+    <Content Include="PrintTicket.aspx" />
+    <Content Include="Refund.aspx" />
+    <Content Include="Reports\AD.aspx" />
+    <Content Include="Reports\AdvanceReport.aspx" />
+    <Content Include="Reports\BS.aspx" />
+    <Content Include="Reports\CNIC.aspx" />
+    <Content Include="Reports\CNICSmartReport.aspx" />
+    <Content Include="Reports\ComissionReportNew.aspx" />
+    <Content Include="Reports\CommissionReport.aspx" />
+    <Content Include="Reports\CommissionReportUnClosed.aspx" />
+    <Content Include="Reports\DailyDepartureReport.aspx" />
+    <Content Include="Reports\DailyDepartureReportSummary.aspx" />
+    <Content Include="Reports\DepartureReport.aspx" />
+    <Content Include="Reports\DropTimeReport.aspx" />
+    <Content Include="Reports\ETickeingload.aspx" />
+    <Content Include="Reports\loadPDF.aspx" />
+    <Content Include="Reports\loadPDFPreVouher.aspx" />
+    <Content Include="Reports\Missed.aspx" />
+    <Content Include="Reports\PrintVoucherReport.aspx" />
+    <Content Include="Reports\PrintVoucherReportAll.aspx" />
+    <Content Include="Reports\PrintVoucherReportNull.aspx" />
+    <Content Include="Reports\PrintVoucherSmartReport.aspx" />
+    <Content Include="Reports\rpt_BookingReport.aspx" />
+    <Content Include="Reports\rpt_DaywisePassenger.aspx" />
+    <Content Include="Reports\UserClosingReport.aspx" />
+    <Content Include="Reports\VoucherReport.aspx" />
+    <Content Include="ReturnTicketing.aspx" />
+    <Content Include="Routes.aspx" />
+    <Content Include="RoutesDetail.aspx" />
+    <Content Include="SC.aspx" />
+    <Content Include="ScheduleDetail.aspx" />
+    <Content Include="Schedules.aspx" />
+    <Content Include="script\jquery-1.5.1.js" />
+    <Content Include="script\jquery.ui.autocomplete.js" />
+    <Content Include="script\jquery.ui.button.js" />
+    <Content Include="script\jquery.ui.core.js" />
+    <Content Include="script\jquery.ui.position.js" />
+    <Content Include="script\jquery.ui.widget.js" />
+    <Content Include="script\scriptlib.js" />
+    <Content Include="SC_New.aspx" />
+    <Content Include="settings.aspx" />
+    <Content Include="SingleDayDepartureReport.aspx" />
+    <Content Include="SMSSetup.aspx" />
+    <Content Include="styles\demos.css" />
+    <Content Include="styles\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="styles\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="styles\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="styles\images\ui-icons_222222_256x240.png" />
+    <Content Include="styles\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="styles\images\ui-icons_454545_256x240.png" />
+    <Content Include="styles\images\ui-icons_888888_256x240.png" />
+    <Content Include="styles\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="styles\jquery.ui.accordion.css" />
+    <Content Include="styles\jquery.ui.all.css" />
+    <Content Include="styles\jquery.ui.autocomplete.css" />
+    <Content Include="styles\jquery.ui.base.css" />
+    <Content Include="styles\jquery.ui.button.css" />
+    <Content Include="styles\jquery.ui.core.css" />
+    <Content Include="styles\jquery.ui.datepicker.css" />
+    <Content Include="styles\jquery.ui.dialog.css" />
+    <Content Include="styles\jquery.ui.progressbar.css" />
+    <Content Include="styles\jquery.ui.resizable.css" />
+    <Content Include="styles\jquery.ui.selectable.css" />
+    <Content Include="styles\jquery.ui.slider.css" />
+    <Content Include="styles\jquery.ui.tabs.css" />
+    <Content Include="styles\jquery.ui.theme.css" />
+    <Content Include="styles\styles.css" />
+    <Content Include="styles\Stylesheet.css" />
+    <Content Include="Terminals.aspx" />
+    <Content Include="Ticketing.aspx" />
+    <Content Include="BusCharges.aspx" />
+    <Content Include="TicketingMaster.aspx" />
+    <Content Include="TicketingSchedule.aspx" />
+    <Content Include="TicketListTest.aspx" />
+    <Content Include="Transit.aspx" />
+    <Content Include="UpdateServer.aspx" />
+    <Content Include="UploadData.aspx" />
+    <Content Include="UploadDataOnServer.aspx" />
+    <Content Include="UserCashClosing.aspx" />
+    <Content Include="UserCashClosingMulti.aspx" />
+    <Content Include="UserClosingReport.aspx" />
+    <Content Include="UserControls\footer.ascx" />
+    <Content Include="UserControls\header.ascx" />
+    <Content Include="UserControls\Left.ascx" />
+    <Content Include="UserControls\main.ascx" />
+    <Content Include="UserLogin.aspx" />
+    <Content Include="UserRights.aspx" />
+    <Content Include="Users.aspx" />
+    <Content Include="Reports\ValueAddedServiceReport.aspx" />
+    <Content Include="Vehicles.aspx" />
+    <Content Include="VoucherPreview.aspx" />
+    <Content Include="VoucherReportByDate.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Advance.aspx.designer.vb">
+      <DependentUpon>Advance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advance.aspx.vb">
+      <DependentUpon>Advance.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdvanceReport.aspx.designer.vb">
+      <DependentUpon>AdvanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceReport.aspx.vb">
+      <DependentUpon>AdvanceReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdvTicketing.aspx.designer.vb">
+      <DependentUpon>AdvTicketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdvTicketing.aspx.vb">
+      <DependentUpon>AdvTicketing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DropTimeUI.aspx.designer.vb">
+      <DependentUpon>DropTimeUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DropTimeUI.aspx.vb">
+      <DependentUpon>DropTimeUI.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ImportAlertInformation.aspx.designer.vb">
+      <DependentUpon>ImportAlertInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportAlertInformation.aspx.vb">
+      <DependentUpon>ImportAlertInformation.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="OperatedCompany.aspx.designer.vb">
+      <DependentUpon>OperatedCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OperatedCompany.aspx.vb">
+      <DependentUpon>OperatedCompany.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BookkaruOnlinePrintReport.aspx.designer.vb">
+      <DependentUpon>BookkaruOnlinePrintReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BookkaruOnlinePrintReport.aspx.vb">
+      <DependentUpon>BookkaruOnlinePrintReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BookkaruPrintReport.aspx.designer.vb">
+      <DependentUpon>BookkaruPrintReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookkaruPrintReport.aspx.vb">
+      <DependentUpon>BookkaruPrintReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Permissions.aspx.designer.vb">
+      <DependentUpon>Permissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Permissions.aspx.vb">
+      <DependentUpon>Permissions.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BackUp.aspx.designer.vb">
+      <DependentUpon>BackUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BackUp.aspx.vb">
+      <DependentUpon>BackUp.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="blank.aspx.designer.vb">
+      <DependentUpon>blank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="blank.aspx.vb">
+      <DependentUpon>blank.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BlankSeats.aspx.designer.vb">
+      <DependentUpon>BlankSeats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlankSeats.aspx.vb">
+      <DependentUpon>BlankSeats.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="booking.aspx.designer.vb">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking.aspx.vb">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BookingReport.aspx.designer.vb">
+      <DependentUpon>BookingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingReport.aspx.vb">
+      <DependentUpon>BookingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BookingReportUI.aspx.designer.vb">
+      <DependentUpon>BookingReportUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingReportUI.aspx.vb">
+      <DependentUpon>BookingReportUI.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BookKaru.aspx.designer.vb">
+      <DependentUpon>BookKaru.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookKaru.aspx.vb">
+      <DependentUpon>BookKaru.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CashClosed.aspx.designer.vb">
+      <DependentUpon>CashClosed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CashClosed.aspx.vb">
+      <DependentUpon>CashClosed.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ChanageTicket.aspx.designer.vb">
+      <DependentUpon>ChanageTicket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChanageTicket.aspx.vb">
+      <DependentUpon>ChanageTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="changepassword.aspx.designer.vb">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="changepassword.aspx.vb">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="city.aspx.designer.vb">
+      <DependentUpon>city.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="city.aspx.vb">
+      <DependentUpon>city.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CommissionReportByDate.aspx.designer.vb">
+      <DependentUpon>CommissionReportByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionReportByDate.aspx.vb">
+      <DependentUpon>CommissionReportByDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommissionReportByDateAll.aspx.designer.vb">
+      <DependentUpon>CommissionReportByDateAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionReportByDateAll.aspx.vb">
+      <DependentUpon>CommissionReportByDateAll.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="common\Common.vb" />
+    <Compile Include="common\CustomizeControl.vb" />
+    <Compile Include="common\UserPersistence.vb" />
+    <Compile Include="CustomerInfo.aspx.designer.vb">
+      <DependentUpon>CustomerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInfo.aspx.vb">
+      <DependentUpon>CustomerInfo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExcludeTerminals.aspx.designer.vb">
+      <DependentUpon>ExcludeTerminals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcludeTerminals.aspx.vb">
+      <DependentUpon>ExcludeTerminals.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Exclude_Terminal_Detail.aspx.designer.vb">
+      <DependentUpon>Exclude_Terminal_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exclude_Terminal_Detail.aspx.vb">
+      <DependentUpon>Exclude_Terminal_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="getCustomerInfo.aspx.designer.vb">
+      <DependentUpon>getCustomerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getCustomerInfo.aspx.vb">
+      <DependentUpon>getCustomerInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getCustomerWatchList.aspx.designer.vb">
+      <DependentUpon>getCustomerWatchList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getCustomerWatchList.aspx.vb">
+      <DependentUpon>getCustomerWatchList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importcomission.aspx.designer.vb">
+      <DependentUpon>importcomission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importcomission.aspx.vb">
+      <DependentUpon>importcomission.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importRefreshment.aspx.designer.vb">
+      <DependentUpon>importRefreshment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importRefreshment.aspx.vb">
+      <DependentUpon>importRefreshment.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importVehiclecontroler.aspx.designer.vb">
+      <DependentUpon>importVehiclecontroler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importVehiclecontroler.aspx.vb">
+      <DependentUpon>importVehiclecontroler.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="loadcitywise.aspx.designer.vb">
+      <DependentUpon>loadcitywise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loadcitywise.aspx.vb">
+      <DependentUpon>loadcitywise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadSingleVoucher.aspx.designer.vb">
+      <DependentUpon>LoadSingleVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadSingleVoucher.aspx.vb">
+      <DependentUpon>LoadSingleVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.vb">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.vb">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.vb">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.vb">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="main.Master.designer.vb">
+      <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="main.Master.vb">
+      <DependentUpon>main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NextDeparture.aspx.designer.vb">
+      <DependentUpon>NextDeparture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NextDeparture.aspx.vb">
+      <DependentUpon>NextDeparture.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="NextDPReport.aspx.designer.vb">
+      <DependentUpon>NextDPReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NextDPReport.aspx.vb">
+      <DependentUpon>NextDPReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="OnlinePosition.aspx.designer.vb">
+      <DependentUpon>OnlinePosition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlinePosition.aspx.vb">
+      <DependentUpon>OnlinePosition.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RefundMissedChange.aspx.designer.vb">
+      <DependentUpon>RefundMissedChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RefundMissedChange.aspx.vb">
+      <DependentUpon>RefundMissedChange.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RegisterSystems.aspx.designer.vb">
+      <DependentUpon>RegisterSystems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterSystems.aspx.vb">
+      <DependentUpon>RegisterSystems.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="dsReports.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ETicketingReport.aspx.designer.vb">
+      <DependentUpon>ETicketingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ETicketingReport.aspx.vb">
+      <DependentUpon>ETicketingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DailyDepartureReportByDate.aspx.designer.vb">
+      <DependentUpon>DailyDepartureReportByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DailyDepartureReportByDate.aspx.vb">
+      <DependentUpon>DailyDepartureReportByDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoard.aspx.vb">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DaywisePassenger.aspx.designer.vb">
+      <DependentUpon>DaywisePassenger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DaywisePassenger.aspx.vb">
+      <DependentUpon>DaywisePassenger.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DepartureReportByDate.aspx.designer.vb">
+      <DependentUpon>DepartureReportByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DepartureReportByDate.aspx.vb">
+      <DependentUpon>DepartureReportByDate.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Fares.aspx.designer.vb">
+      <DependentUpon>Fares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fares.aspx.vb">
+      <DependentUpon>Fares.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.vb">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.vb">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importcities.aspx.designer.vb">
+      <DependentUpon>importcities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importcities.aspx.vb">
+      <DependentUpon>importcities.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importfare.aspx.designer.vb">
+      <DependentUpon>importfare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importfare.aspx.vb">
+      <DependentUpon>importfare.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ImportOnlineData.aspx.designer.vb">
+      <DependentUpon>ImportOnlineData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportOnlineData.aspx.vb">
+      <DependentUpon>ImportOnlineData.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importroutes.aspx.designer.vb">
+      <DependentUpon>importroutes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importroutes.aspx.vb">
+      <DependentUpon>importroutes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importrouteschedules.aspx.designer.vb">
+      <DependentUpon>importrouteschedules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importrouteschedules.aspx.vb">
+      <DependentUpon>importrouteschedules.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importterminals.aspx.designer.vb">
+      <DependentUpon>importterminals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importterminals.aspx.vb">
+      <DependentUpon>importterminals.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importusers.aspx.designer.vb">
+      <DependentUpon>importusers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importusers.aspx.vb">
+      <DependentUpon>importusers.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="importvehicles.aspx.designer.vb">
+      <DependentUpon>importvehicles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importvehicles.aspx.vb">
+      <DependentUpon>importvehicles.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.vb">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.vb">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PrintTicket.aspx.designer.vb">
+      <DependentUpon>PrintTicket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintTicket.aspx.vb">
+      <DependentUpon>PrintTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Refund.aspx.designer.vb">
+      <DependentUpon>Refund.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Refund.aspx.vb">
+      <DependentUpon>Refund.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\AD.aspx.designer.vb">
+      <DependentUpon>AD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AD.aspx.vb">
+      <DependentUpon>AD.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\AdvanceReport.aspx.designer.vb">
+      <DependentUpon>AdvanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AdvanceReport.aspx.vb">
+      <DependentUpon>AdvanceReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BookingReport.aspx.designer.vb">
+      <DependentUpon>BookingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BookingReport.aspx.vb">
+      <DependentUpon>BookingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BookKaruReport.aspx.designer.vb">
+      <DependentUpon>BookKaruReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BookKaruReport.aspx.vb">
+      <DependentUpon>BookKaruReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BS.aspx.designer.vb">
+      <DependentUpon>BS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BS.aspx.vb">
+      <DependentUpon>BS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CancelReport.aspx.designer.vb">
+      <DependentUpon>CancelReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CancelReport.aspx.vb">
+      <DependentUpon>CancelReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CNIC.aspx.designer.vb">
+      <DependentUpon>CNIC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CNIC.aspx.vb">
+      <DependentUpon>CNIC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CNICSmartReport.aspx.designer.vb">
+      <DependentUpon>CNICSmartReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CNICSmartReport.aspx.vb">
+      <DependentUpon>CNICSmartReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ComissionReportNew.aspx.designer.vb">
+      <DependentUpon>ComissionReportNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ComissionReportNew.aspx.vb">
+      <DependentUpon>ComissionReportNew.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CommissionReport.aspx.designer.vb">
+      <DependentUpon>CommissionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CommissionReport.aspx.vb">
+      <DependentUpon>CommissionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CommissionReportUnClosed.aspx.designer.vb">
+      <DependentUpon>CommissionReportUnClosed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CommissionReportUnClosed.aspx.vb">
+      <DependentUpon>CommissionReportUnClosed.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\cReportUtlity.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\DailyDepartureReport.aspx.designer.vb">
+      <DependentUpon>DailyDepartureReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DailyDepartureReport.aspx.vb">
+      <DependentUpon>DailyDepartureReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DailyDepartureReportSummary.aspx.designer.vb">
+      <DependentUpon>DailyDepartureReportSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DailyDepartureReportSummary.aspx.vb">
+      <DependentUpon>DailyDepartureReportSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DepartureReport.aspx.designer.vb">
+      <DependentUpon>DepartureReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DepartureReport.aspx.vb">
+      <DependentUpon>DepartureReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DropTimeReport.aspx.designer.vb">
+      <DependentUpon>DropTimeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DropTimeReport.aspx.vb">
+      <DependentUpon>DropTimeReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ETickeingload.aspx.designer.vb">
+      <DependentUpon>ETickeingload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ETickeingload.aspx.vb">
+      <DependentUpon>ETickeingload.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\loadPDF.aspx.designer.vb">
+      <DependentUpon>loadPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\loadPDF.aspx.vb">
+      <DependentUpon>loadPDF.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\loadPDFPreVouher.aspx.designer.vb">
+      <DependentUpon>loadPDFPreVouher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\loadPDFPreVouher.aspx.vb">
+      <DependentUpon>loadPDFPreVouher.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\loadPDFVouher.aspx.designer.vb">
+      <DependentUpon>loadPDFVouher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\loadPDFVouher.aspx.vb">
+      <DependentUpon>loadPDFVouher.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\LoadreportNextDeparture.aspx.designer.vb">
+      <DependentUpon>LoadreportNextDeparture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LoadreportNextDeparture.aspx.vb">
+      <DependentUpon>LoadreportNextDeparture.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Missed.aspx.designer.vb">
+      <DependentUpon>Missed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Missed.aspx.vb">
+      <DependentUpon>Missed.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PreviousReport.aspx.designer.vb">
+      <DependentUpon>PreviousReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PreviousReport.aspx.vb">
+      <DependentUpon>PreviousReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReport.aspx.designer.vb">
+      <DependentUpon>PrintVoucherReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReport.aspx.vb">
+      <DependentUpon>PrintVoucherReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportAll.aspx.designer.vb">
+      <DependentUpon>PrintVoucherReportAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportAll.aspx.vb">
+      <DependentUpon>PrintVoucherReportAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportAllNew.aspx.designer.vb">
+      <DependentUpon>PrintVoucherReportAllNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportAllNew.aspx.vb">
+      <DependentUpon>PrintVoucherReportAllNew.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportNull.aspx.designer.vb">
+      <DependentUpon>PrintVoucherReportNull.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherReportNull.aspx.vb">
+      <DependentUpon>PrintVoucherReportNull.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherSmartReport.aspx.designer.vb">
+      <DependentUpon>PrintVoucherSmartReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrintVoucherSmartReport.aspx.vb">
+      <DependentUpon>PrintVoucherSmartReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_BookingReport.aspx.designer.vb">
+      <DependentUpon>rpt_BookingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rpt_BookingReport.aspx.vb">
+      <DependentUpon>rpt_BookingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\rpt_DaywisePassenger.aspx.designer.vb">
+      <DependentUpon>rpt_DaywisePassenger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rpt_DaywisePassenger.aspx.vb">
+      <DependentUpon>rpt_DaywisePassenger.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ShowNewVoucher.aspx.designer.vb">
+      <DependentUpon>ShowNewVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ShowNewVoucher.aspx.vb">
+      <DependentUpon>ShowNewVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\UserClosingReport.aspx.designer.vb">
+      <DependentUpon>UserClosingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserClosingReport.aspx.vb">
+      <DependentUpon>UserClosingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherReport.aspx.designer.vb">
+      <DependentUpon>VoucherReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VoucherReport.aspx.vb">
+      <DependentUpon>VoucherReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReturnTicketing.aspx.designer.vb">
+      <DependentUpon>ReturnTicketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnTicketing.aspx.vb">
+      <DependentUpon>ReturnTicketing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Routes.aspx.designer.vb">
+      <DependentUpon>Routes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Routes.aspx.vb">
+      <DependentUpon>Routes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoutesDetail.aspx.designer.vb">
+      <DependentUpon>RoutesDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoutesDetail.aspx.vb">
+      <DependentUpon>RoutesDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SC.aspx.designer.vb">
+      <DependentUpon>SC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SC.aspx.vb">
+      <DependentUpon>SC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScheduleDetail.aspx.designer.vb">
+      <DependentUpon>ScheduleDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleDetail.aspx.vb">
+      <DependentUpon>ScheduleDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schedules.aspx.designer.vb">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schedules.aspx.vb">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schedule_detail_new.aspx.designer.vb">
+      <DependentUpon>Schedule_detail_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule_detail_new.aspx.vb">
+      <DependentUpon>Schedule_detail_new.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SC_New.aspx.designer.vb">
+      <DependentUpon>SC_New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SC_New.aspx.vb">
+      <DependentUpon>SC_New.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SearResults.aspx.designer.vb">
+      <DependentUpon>SearResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearResults.aspx.vb">
+      <DependentUpon>SearResults.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SelectCity.aspx.designer.vb">
+      <DependentUpon>SelectCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCity.aspx.vb">
+      <DependentUpon>SelectCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectTicketing.aspx.designer.vb">
+      <DependentUpon>SelectTicketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectTicketing.aspx.vb">
+      <DependentUpon>SelectTicketing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ServiceType.aspx.designer.vb">
+      <DependentUpon>ServiceType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceType.aspx.vb">
+      <DependentUpon>ServiceType.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="settings.aspx.vb">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShuttleCharges.aspx.designer.vb">
+      <DependentUpon>ShuttleCharges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShuttleCharges.aspx.vb">
+      <DependentUpon>ShuttleCharges.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SingleDayDepartureReport.aspx.designer.vb">
+      <DependentUpon>SingleDayDepartureReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SingleDayDepartureReport.aspx.vb">
+      <DependentUpon>SingleDayDepartureReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SMSSetup.aspx.designer.vb">
+      <DependentUpon>SMSSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SMSSetup.aspx.vb">
+      <DependentUpon>SMSSetup.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Terminals.aspx.designer.vb">
+      <DependentUpon>Terminals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Terminals.aspx.vb">
+      <DependentUpon>Terminals.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Ticketing.aspx.designer.vb">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ticketing.aspx.vb">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusCharges.aspx.designer.vb">
+      <DependentUpon>BusCharges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusCharges.aspx.vb">
+      <DependentUpon>BusCharges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketingMaster.aspx.designer.vb">
+      <DependentUpon>TicketingMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TicketingMaster.aspx.vb">
+      <DependentUpon>TicketingMaster.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TicketingSchedule.aspx.designer.vb">
+      <DependentUpon>TicketingSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TicketingSchedule.aspx.vb">
+      <DependentUpon>TicketingSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketListTest.aspx.designer.vb">
+      <DependentUpon>TicketListTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TicketListTest.aspx.vb">
+      <DependentUpon>TicketListTest.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Transit.aspx.designer.vb">
+      <DependentUpon>Transit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transit.aspx.vb">
+      <DependentUpon>Transit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UpdateServer.aspx.designer.vb">
+      <DependentUpon>UpdateServer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateServer.aspx.vb">
+      <DependentUpon>UpdateServer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UploadData.aspx.designer.vb">
+      <DependentUpon>UploadData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadData.aspx.vb">
+      <DependentUpon>UploadData.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UploadDataOnServer.aspx.designer.vb">
+      <DependentUpon>UploadDataOnServer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadDataOnServer.aspx.vb">
+      <DependentUpon>UploadDataOnServer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserCashClosing.aspx.designer.vb">
+      <DependentUpon>UserCashClosing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCashClosing.aspx.vb">
+      <DependentUpon>UserCashClosing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserCashClosingMulti.aspx.designer.vb">
+      <DependentUpon>UserCashClosingMulti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCashClosingMulti.aspx.vb">
+      <DependentUpon>UserCashClosingMulti.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserClosingReport.aspx.designer.vb">
+      <DependentUpon>UserClosingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserClosingReport.aspx.vb">
+      <DependentUpon>UserClosingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\footer.ascx.designer.vb">
+      <DependentUpon>footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\footer.ascx.vb">
+      <DependentUpon>footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\header.ascx.designer.vb">
+      <DependentUpon>header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\header.ascx.vb">
+      <DependentUpon>header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Left.ascx.designer.vb">
+      <DependentUpon>Left.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Left.ascx.vb">
+      <DependentUpon>Left.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\main.ascx.vb">
+      <DependentUpon>main.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLogin.aspx.designer.vb">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.aspx.vb">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UserRights.aspx.designer.vb">
+      <DependentUpon>UserRights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserRights.aspx.vb">
+      <DependentUpon>UserRights.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.vb">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.vb">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ValueAddedServiceReport.aspx.designer.vb">
+      <DependentUpon>ValueAddedServiceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ValueAddedServiceReport.aspx.vb">
+      <DependentUpon>ValueAddedServiceReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vehicles.aspx.designer.vb">
+      <DependentUpon>Vehicles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles.aspx.vb">
+      <DependentUpon>Vehicles.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VoucherPreview.aspx.designer.vb">
+      <DependentUpon>VoucherPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherPreview.aspx.vb">
+      <DependentUpon>VoucherPreview.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VoucherReportByDate.aspx.designer.vb">
+      <DependentUpon>VoucherReportByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherReportByDate.aspx.vb">
+      <DependentUpon>VoucherReportByDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="dsReports.xsc">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <None Include="dsReports.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReports.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsReports.xss">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <Content Include="Advance.aspx" />
+    <Content Include="bin\SQLServerMerg.dll" />
+    <Content Include="bin\SQLServerMerg.pdb" />
+    <Content Include="bin\SQLServerMerg.xml" />
+    <Content Include="BookingReportUI.aspx" />
+    <Content Include="BookKaru.aspx" />
+    <Content Include="ChanageTicket.aspx" />
+    <Content Include="CustomerInfo.aspx" />
+    <Content Include="ExcludeTerminals.aspx" />
+    <Content Include="Exclude_Terminal_Detail.aspx" />
+    <Content Include="getCustomerInfo.aspx" />
+    <Content Include="getCustomerWatchList.aspx" />
+    <Content Include="importcomission.aspx" />
+    <Content Include="importVehiclecontroler.aspx" />
+    <Content Include="loadcitywise.aspx" />
+    <Content Include="LoadSingleVoucher.aspx" />
+    <Content Include="Product.aspx" />
+    <Content Include="main.aspx" />
+    <Content Include="main.Master" />
+    <Content Include="NextDeparture.aspx" />
+    <Content Include="NextDPReport.aspx" />
+    <Content Include="RefundMissedChange.aspx" />
+    <Content Include="Reports\BookingReport.aspx" />
+    <Content Include="Reports\BookKaruReport.aspx" />
+    <Content Include="Reports\CancelReport.aspx" />
+    <Content Include="Reports\loadPDFVouher.aspx" />
+    <Content Include="Reports\LoadreportNextDeparture.aspx" />
+    <Content Include="Reports\PreviousReport.aspx" />
+    <Content Include="Reports\PrintVoucherReportAllNew.aspx" />
+    <Content Include="Reports\ShowNewVoucher.aspx" />
+    <Content Include="Schedule_detail_new.aspx" />
+    <Content Include="SearResults.aspx" />
+    <Content Include="SelectCity.aspx" />
+    <Content Include="SelectTicketing.aspx" />
+    <Content Include="ServiceType.aspx" />
+    <Content Include="ShuttleCharges.aspx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Reports\MissedCashLogReport.rpt" />
+    <Content Include="Reports\rptPrintTicketBusiness.rpt" />
+    <Content Include="Reports\rptPrintTicket.rpt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FMovers.Ticketing.DAL\FMovers.Ticketing.DAL.vbproj">
+      <Project>{FA2A357D-1CA9-49D5-BE8C-DCBF7F85E0D0}</Project>
+      <Name>FMovers.Ticketing.DAL</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FMovers.Ticketing.Entity\FMovers.Ticketing.Entity.vbproj">
+      <Project>{341104D1-B189-4F63-9504-915400B3A775}</Project>
+      <Name>FMovers.Ticketing.Entity</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FMovers.Ticketing.Online\FMovers.Ticketing.Online.vbproj">
+      <Project>{EA100534-BD86-4272-9C4E-6EEDED23826F}</Project>
+      <Name>FMovers.Ticketing.Online</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3924545A-F8E2-475A-B1A4-05175BC41E50}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>555</DevelopmentServerPort>
+          <DevelopmentServerVPath>/Ticketing</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Ticketing</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,335 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="main.master.vb" Inherits="FMovers.Ticketing.UI.main" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head >
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+       <title>Ticketing System</title>
+
+
+
+<script>
+    function ShowOPBalance() {
+        if (document.getElementById("OPBalance").style.display == "block") {
+
+            document.getElementById("OPBalance").style.display = "none";
+        }
+        else {
+            document.getElementById("OPBalance").style.display = "block";
+        }
+        return false;
+    }
+
+</script>
+
+    <!-- Bootstrap Core CSS -->
+ 
+    <!-- MetisMenu CSS -->
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="styles/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="styles/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="styles/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ 
+	
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header"  >
+             <img src="images/Fmlogos.png" style="margin-top:10px" />
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+        <li>
+        <asp:Label ID="lblTerminalName" ForeColor="White" Font-Bold=true runat="server" Text=""></asp:Label>
+        </li>
+ <li  >
+ <asp:Image ID="imgServerStatus" runat="server" 
+                                ImageUrl="~/images/signals/good.png"  style="margin-top:-8px" />
+ </li>
+            <li class="dropdown navbar-inverse" onclick="return ShowOPBalance();" >
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i  class="fa fa-file-text-o fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul  id="OPBalance" class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <!--<i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 minutes ago</span>-->
+
+                            </div>
+                        </a>
+                    </li>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				
+				
+				
+<tr >
+				      <td align="left" valign="middle"  class="left_td_02" >
+
+				      	  <table width ="100%" style="font-family: verdana; font-size: 10px; margin-left:15px " >
+  
+                                                  <tr>
+                                                      <td>
+                                                                    <asp:Label ID="Label10" runat="server" CssClass="Generallabel" 
+                                                                        Text="Opening Balanace :"></asp:Label>
+                                                                </td>
+                                                      <td>
+                                                                    <asp:Label ID="lblOpeniningBal" runat="server" CssClass="Generallabel" 
+                                                                        Font-Bold="True"></asp:Label>
+                                                                </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                                    <asp:Label ID="Label5" runat="server" CssClass="Generallabel" 
+                                                                        Text="Total Cash Hold :"></asp:Label>
+                                                                    </td>
+                                                      <td>
+                                                                    <asp:Label ID="lblCashCollection" runat="server" CssClass="Generallabel" 
+                                                                        Font-Bold="True"></asp:Label>
+                                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                                    <asp:Label ID="Label13" runat="server" CssClass="Generallabel" 
+                                                                        Text="Total Deduction :"></asp:Label>
+                                                                </td>
+                                                      <td>
+                                                                    <asp:Label ID="lblDeduction" runat="server" CssClass="Generallabel" 
+                                                                        Font-Bold="True"></asp:Label>
+                                                                </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                          <asp:Label ID="Label6" runat="server" CssClass="Generallabel" 
+                                                              Text="Advance Ticketing :"></asp:Label>
+                                                      </td>
+                                                      <td>
+                                                          <asp:Label ID="lblAdance" runat="server" CssClass="Generallabel" 
+                                                              Font-Bold="True"></asp:Label>
+                                                      </td>
+                              </tr>
+                              
+                                                                                <tr>
+                                                      <td>
+                                                          <asp:Label ID="Label1" runat="server" CssClass="Generallabel" 
+                                                              Text="Missed Cash :"></asp:Label>
+                                                      </td>
+                                                      <td>
+                                                          <asp:Label ID="lblMissed" runat="server" CssClass="Generallabel" 
+                                                              Font-Bold="True"></asp:Label>
+                                                      </td>
+                              </tr>
+
+                                                                                <tr>
+                                                      <td>
+                                                          <asp:Label ID="Label3" runat="server" CssClass="Generallabel" 
+                                                              Text="Refund Cash :"></asp:Label>
+                                                      </td>
+                                                      <td>
+                                                          <asp:Label ID="lblRefund" runat="server" CssClass="Generallabel" 
+                                                              Font-Bold="True"></asp:Label>
+                                                      </td>
+                              </tr>
+
+
+                                                                                <tr>
+                                                      <td>
+                                                          <asp:Label ID="Label2" runat="server" CssClass="Generallabel" 
+                                                              Text="Change Cash :"></asp:Label>
+                                                      </td>
+                                                      <td>
+                                                          <asp:Label ID="lblChange" runat="server" CssClass="Generallabel" 
+                                                              Font-Bold="True"></asp:Label>
+                                                      </td>
+                              </tr>
+
+                              
+                                                  <tr>
+                                                      <td colspan="2">
+                                                          ---------------------------------------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>
+                                                                    <asp:Label ID="Label14" runat="server" CssClass="Generallabel" 
+                                                              Text="Total :"></asp:Label>
+                                                                </td>
+                                                      <td>
+                                                                    <asp:Label ID="lblTotal" runat="server" CssClass="Generallabel" 
+                                                                        Font-Bold="True"></asp:Label>
+                                                                </td>
+                                                  </tr>
+                                                 
+                                                                   
+                                   
+
+
+				      
+				      	</td>
+				          </tr>
+				          
+
+</tr>
+
+				                  
+  			                 
+
+
+
+				  
+
+
+				</table>
+				</td>
+			  </tr>
+			  
+			</table>
+                    <li class="divider"></li>
+
+                </ul>
+
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i><asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                        
+                        <asp:DropDownList ID="cboType" runat="server"  class="form-control" style="width:220px;margin-bottom:5px" >
+                            <asp:ListItem Value="0">Select</asp:ListItem>
+                            <asp:ListItem Value="1">Voucher Number</asp:ListItem>
+                            <asp:ListItem Value="2">Ticket Number</asp:ListItem>
+                            <asp:ListItem Value="3">Cash Book Number</asp:ListItem>
+                            <asp:ListItem Value="4">Invoice Numner</asp:ListItem>
+                            </asp:DropDownList>
+                            
+                            
+                        </div>
+                       
+                        <div class="input-group custom-search-form">
+                        <asp:TextBox ID="txtSearch" class="form-control" runat="server" placeholder="Search here ..."></asp:TextBox>
+
+                                <span class="input-group-btn">
+                                <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="  Search" >
+
+                                </asp:Button>
+                                </span>
+
+                        </div>
+                    </li>
+                  
+                    <li>
+                        <a href="main.aspx" class="active"><i class="fa fa-umbrella fa-fw"></i> Current Ticketing</a>
+                        <a href="SelectTicketing.aspx?mode=1" class="active"><i class="fa fa-exchange fa-fw"></i> Advance Ticketing</a>
+                        <a href="SelectTicketing.aspx?mode=2" class="active"><i class="fa fa-lightbulb-o fa-fw"></i> Booking </a>
+                        <a href="SC_New.aspx" class="active"><i class="fa fa-cloud-upload fa-fw"></i> Ticket Change</a>
+                        <a href="Refund.aspx" class="active"><i class="fa fa-user-md fa-fw"></i> Ticket Refund</a>
+                        <a href="NextDeparture.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> Next Departure</a>
+                        
+                        <a href="OnlinePosition.aspx" class="active"><i class="fa fa-stethoscope fa-fw"></i> Live Feeds</a>
+                        <a href="UserCashClosingMulti.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> User Closing</a>
+                        <a href="changepassword.aspx" class="active"><i class="fa fa-suitcase fa-fw"></i> Change Password</a>
+                        <a href="ImportOnlineData.aspx" class="active"><i class="fa fa-sitemap fa-fw"></i> Import Data</a>
+                    
+
+
+                        <a href="UserClosingReport.aspx" class="active"><i class="fa fa-stethoscope fa-fw"></i> User Closing Report</a>
+                        <a href="DepartureReportByDate.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> Departure Report</a>
+                        <a href="BookKaru.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> BookKaru Report</a>
+                        <a href="BookkaruPrintReport.aspx" class="active"><i class="fa fa-sitemap fa-fw"></i>Bookkaru Print Report</a>
+                        <a href="BookingReportUI.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> Booking Report</a>
+                        <a href="DropTimeUI.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> Drop Time Report</a>
+                        <a href="AdvanceReport.aspx" class="active"><i class="fa fa-cloud-download fa-fw"></i> Advance Report</a>
+                        <a href="Reports/Missed.aspx?type=Missed" class="active"><i class="fa fa-suitcase fa-fw"></i> Refund Change Details</a>
+                        <a href="CommissionReportByDateAll.aspx" class="active"><i class="fa fa-sitemap fa-fw"></i> Commission Details</a>
+                        <a href="NextDPReport.aspx" class="active"><i class="fa fa-sitemap fa-fw"></i> Next Departure Report</a>
+                        <a href="AdvanceReport.aspx?type=log" class="active"><i class="fa fa-sitemap fa-fw"></i> Advance Log Report</a>
+                         
+
+                    </li>
+
+                   
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+    
+        <div class="container-fluid">
+   
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1"  runat="server">
+            <!-- ... Your content goes here ... -->
+
+        </asp:ContentPlaceHolder>
+
+        </div>
+    </div>
+
+</div>
+    </div>
+                
+     
+
+    </form>
+    
+</body>
+</html>
